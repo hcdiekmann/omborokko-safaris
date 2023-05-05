@@ -78,6 +78,7 @@ interface HeaderProps {
 export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
+
   const handleLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     page: string
@@ -86,6 +87,7 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
     event.preventDefault();
     setPage(page);
   };
+
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <a
