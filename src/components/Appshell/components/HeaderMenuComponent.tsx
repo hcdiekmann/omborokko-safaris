@@ -1,4 +1,6 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useDisclosure } from '@mantine/hooks';
+import { IconChevronDown } from '@tabler/icons-react';
 import {
   createStyles,
   Header,
@@ -12,8 +14,6 @@ import {
   Flex,
   Title,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -77,7 +77,7 @@ interface HeaderProps {
 }
 
 export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened] = useDisclosure(false);
   const [drawerOpened, setDrawerOpened] = useState(false);
   const { classes } = useStyles();
 
