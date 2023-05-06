@@ -6,6 +6,7 @@ import {
   Group,
   Center,
   Burger,
+  Drawer,
   Container,
   rem,
   Flex,
@@ -77,13 +78,14 @@ interface HeaderProps {
 
 export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
+  const [drawerOpened, setDrawerOpened] = useState(false);
   const { classes } = useStyles();
 
   const handleLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     page: string
   ) => {
-    console.log(page);
+    setDrawerOpened(false); // Close the mobile menu when a link is clicked
     event.preventDefault();
     setPage(page);
   };
@@ -137,6 +139,37 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
     );
   });
 
+  const renderMobileMenuItems = () => {
+    return links.map((link) => {
+      if (link.links) {
+        return (
+          <Flex key={link.label} direction='column' columnGap={20}>
+            {link.links.map((item) => (
+              <a
+                key={item.link}
+                href={item.link}
+                className={classes.link}
+                onClick={(event) => handleLinkClick(event, item.link)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </Flex>
+        );
+      }
+      return (
+        <a
+          key={link.label}
+          href={link.link}
+          className={classes.link}
+          onClick={(event) => handleLinkClick(event, link.link)}
+        >
+          {link.label}
+        </a>
+      );
+    });
+  };
+
   return (
     <Header height={80} className={classes.header} mb={120}>
       <Container>
@@ -150,11 +183,22 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
           </Group>
           <Burger
             opened={opened}
-            onClick={toggle}
+            onClick={() => {
+              setDrawerOpened(!drawerOpened);
+            }}
             className={classes.burger}
             size='sm'
-            color='#fff'
+            color='#000'
           />
+          <Drawer
+            opened={drawerOpened}
+            onClose={() => setDrawerOpened(false)}
+            padding='md'
+            size='xs'
+            zIndex={1000}
+          >
+            {renderMobileMenuItems()}
+          </Drawer>
         </div>
       </Container>
     </Header>
