@@ -187,10 +187,11 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
               setDrawerOpened(!drawerOpened);
             }}
             className={classes.burger}
-            size='sm'
+            size='md'
             color='#000'
           />
           <Drawer
+            position='right'
             opened={drawerOpened}
             onClose={() => setDrawerOpened(false)}
             padding='md'
