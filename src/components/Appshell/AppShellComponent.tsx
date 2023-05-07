@@ -9,34 +9,30 @@ interface AppShellProps {
 export const AppShellComponent = (props: AppShellProps) => {
   const links = [
     {
+      link: '/home',
+      label: 'Home',
+    },
+    {
+      link: '/accommodation',
+      label: 'Accommadation',
       links: [
         {
-          link: '/home',
-          label: 'Home',
+          link: '/camping',
+          label: 'Remote Camping',
         },
         {
-          link: '/accommodation',
-          label: 'Accommadation',
-          links: [
-            {
-              link: '/camping',
-              label: 'Remote Camping',
-            },
-            {
-              link: '/b&b',
-              label: 'Farmhouse B&B',
-            },
-          ],
-        },
-        {
-          link: '/rates',
-          label: 'Rates',
-        },
-        {
-          link: '/contact',
-          label: 'Contact',
+          link: '/b&b',
+          label: 'Farmhouse B&B',
         },
       ],
+    },
+    {
+      link: '/rates',
+      label: 'Rates',
+    },
+    {
+      link: '/contact',
+      label: 'Contact',
     },
   ];
 
@@ -45,7 +41,7 @@ export const AppShellComponent = (props: AppShellProps) => {
       header={
         <HeaderMenu
           Logo={'/pictures/Logo.png'}
-          links={links[0].links as any[]}
+          links={links}
           setPage={props.setPage}
         />
       }
