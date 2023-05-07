@@ -1,5 +1,6 @@
 import { AppShell } from '@mantine/core';
 import { HeaderMenu } from './components/HeaderMenuComponent';
+import { FooterCentered } from './components/FooterComponent';
 
 interface AppShellProps {
   children: JSX.Element;
@@ -40,6 +41,13 @@ export const AppShellComponent = (props: AppShellProps) => {
     <AppShell
       header={
         <HeaderMenu
+          Logo={'/pictures/Logo.png'}
+          links={links}
+          setPage={props.setPage}
+        />
+      }
+      footer={
+        <FooterCentered
           Logo={'/pictures/Logo.png'}
           links={links}
           setPage={props.setPage}
