@@ -2,45 +2,53 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './api/react-query/QueryClient';
 
-import { useHotkeys, useLocalStorage } from '@mantine/hooks';
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  MantineProvider,
-} from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { IndexPageProvider } from './pages/IndexPageProvider';
+import '@fontsource/caveat-brush';
 
 export const App = (): JSX.Element => {
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: 'light',
-  });
-
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
-  useHotkeys([['mod+J', () => toggleColorScheme()]]);
-
   return (
     <div className='App'>
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
+      <MantineProvider
+        theme={{
+          colors: {
+            logoGrey: [
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+              '#E4E3E3',
+            ],
+          },
+          primaryColor: 'logoGrey',
+          headings: {
+            // properties for all headings
+            fontWeight: 400,
+            fontFamily: '"Caveat Brush", cursive;',
+
+            // properties for individual headings, all of them are optional
+            sizes: {
+              h1: { fontWeight: 100, fontSize: '2.8rem', lineHeight: 0.8 },
+              h2: { fontSize: '2.2rem', lineHeight: 1.5 },
+            },
+          },
+        }}
+        withGlobalStyles
+        withNormalizeCSS
       >
-        <MantineProvider
-          theme={{ colorScheme }}
-          withGlobalStyles
-          withNormalizeCSS
-        >
-          <QueryClientProvider client={queryClient}>
-            <Router>
-              <Routes>
-                <Route path='/' element={<IndexPageProvider />} />
-              </Routes>
-            </Router>
-          </QueryClientProvider>
-        </MantineProvider>
-      </ColorSchemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <Routes>
+              <Route path='/' element={<IndexPageProvider />} />
+            </Routes>
+          </Router>
+        </QueryClientProvider>
+      </MantineProvider>
     </div>
   );
 };
