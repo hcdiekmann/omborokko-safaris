@@ -1,5 +1,12 @@
-import { Center, Title, Container, Loader, Paper, Flex } from '@mantine/core';
-import { useContext, useEffect, useState } from 'react';
+import {
+  Title,
+  Container,
+  Loader,
+  Paper,
+  Flex,
+  BackgroundImage,
+  createStyles,
+} from '@mantine/core';
 
 export const HomePage = (): JSX.Element => {
   return (
