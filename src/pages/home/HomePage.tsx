@@ -1,11 +1,4 @@
-import {
-  BackgroundImage,
-  Box,
-  Center,
-  Container,
-  Text,
-  Title,
-} from '@mantine/core';
+import { Title, BackgroundImage } from '@mantine/core';
 
 export const HomePage = (): JSX.Element => {
   return (
