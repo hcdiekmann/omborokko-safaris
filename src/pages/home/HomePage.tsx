@@ -1,10 +1,16 @@
-import { Center, Title, Container, Loader, Paper, Flex } from '@mantine/core';
-import { useContext, useEffect, useState } from 'react';
+import {
+  BackgroundImage,
+  Box,
+  Center,
+  Container,
+  Text,
+  Title,
+} from '@mantine/core';
 
 export const HomePage = (): JSX.Element => {
   return (
-    <Container>
-      <Title order={2}>Home Page</Title>
-    </Container>
+    <BackgroundImage src='/pictures/webp/home_bg.webp' radius='xs'>
+      <Title order={2}>Home</Title>
+    </BackgroundImage>
   );
 };
