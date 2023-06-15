@@ -41,14 +41,14 @@ export const AppShellComponent = (props: AppShellProps) => {
     <AppShell
       header={
         <HeaderMenu
-          Logo={'/pictures/Logo.png'}
+          Logo={'/pictures/Logo_no_bg.png'}
           links={links}
           setPage={props.setPage}
         />
       }
       footer={
         <FooterCentered
-          Logo={'/pictures/Logo.png'}
+          Logo={'/pictures/Logo_no_bg.png'}
           links={links}
           setPage={props.setPage}
         />

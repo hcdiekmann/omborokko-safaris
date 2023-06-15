@@ -17,10 +17,7 @@ import {
 
 const useStyles = createStyles((theme) => ({
   header: {
-    backgroundColor: theme.fn.variant({
-      variant: 'filled',
-      color: theme.primaryColor,
-    }).background,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderBottom: 0,
   },
 
@@ -54,10 +51,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: theme.fn.darken(
-        theme.fn.variant({ variant: 'filled', color: theme.white }).background!,
-        0.1
-      ),
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
     },
   },
 
@@ -194,9 +188,7 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
             position='right'
             opened={drawerOpened}
             onClose={() => setDrawerOpened(false)}
-            padding='md'
             size='xs'
-            zIndex={1000}
           >
             {renderMobileMenuItems()}
           </Drawer>

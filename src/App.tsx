@@ -8,7 +8,16 @@ import '@fontsource/caveat-brush';
 
 export const App = (): JSX.Element => {
   return (
-    <div className='App'>
+    <div
+      className='App'
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/pictures/webp/home_bg.webp')",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <MantineProvider
         theme={{
           colors: {
