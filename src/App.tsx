@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './api/react-query/QueryClient';
 
-import { MantineProvider, GlobalStyles } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { IndexPageProvider } from './pages/IndexPageProvider';
 import '@fontsource/caveat-brush';
 

@@ -1,5 +1,4 @@
-import { Center, Title, Container, Loader, Paper, Flex } from '@mantine/core';
-import { useContext, useEffect, useState } from 'react';
+import { Title, Container } from '@mantine/core';
 
 export const BBPage = (): JSX.Element => {
   return (
