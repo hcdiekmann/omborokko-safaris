@@ -74,12 +74,23 @@ const data = [
   {
     image: '/pictures/webp/B&BFamilyRoomBeds.webp',
     title: 'Indulge in luxurious tranquility at our Farm Retreat',
-    category: 'Farm Bed & Breakfast',
+    category: 'Bed & Breakfast',
   },
   {
     image: '/pictures/webp/CampFireplaceTreeDarkend.jpg',
     title: 'Adventurous camping amidst majestic Leadwood trees',
-    category: ' Remote Camping',
+    category: 'Camping',
+  },
+  {
+    image: '/pictures/JPG/Jackal.jpg',
+    title:
+      'Experience an up-close encounter with wildlife at our Waterhole observatory',
+    category: 'Activities',
+  },
+  {
+    image: '/pictures/webp/B&BBar.webp',
+    title: 'Relax and unwind at our Pool Deck',
+    category: 'Swimming Pool',
   },
 ];
 
@@ -96,8 +107,10 @@ export const CarouselComponent = (): JSX.Element => {
     <Carousel
       slideSize='50%'
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 10 }]}
-      slideGap='md'
+      slideGap='lg'
       align='start'
+      loop
+      withIndicators
       slidesToScroll={mobile ? 1 : 2}
     >
       {slides}
