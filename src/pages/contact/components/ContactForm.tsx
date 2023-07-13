@@ -55,20 +55,17 @@ export const ContactForm = (): JSX.Element => {
           <TextInput
             label='Name'
             placeholder='Your name'
-            withAsterisk
             {...form.getInputProps('name')}
           />
           <TextInput
             label='Email'
             placeholder='Your email'
-            withAsterisk
             mt='sm'
             {...form.getInputProps('email')}
           />
           <Textarea
             label='Message'
             placeholder='Your message'
-            withAsterisk
             mt='xs'
             {...form.getInputProps('message')}
           />
@@ -80,7 +77,6 @@ export const ContactForm = (): JSX.Element => {
             name='contactOption'
             label='Intent'
             description='Choose the purpose for contacting us'
-            withAsterisk
           >
             <Radio mt={2} value='enquiry' label='Enquiry or Feedback' />
             <Radio mt={2} value='booking' label='Booking request' />
