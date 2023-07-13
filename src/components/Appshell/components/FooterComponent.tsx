@@ -17,10 +17,7 @@ const useStyles = createStyles((theme) => ({
   footer: {
     marginTop: rem(120),
     borderTop: `${rem(1)} solid ${theme.colors.gray[2]}`,
-    backgroundColor: theme.fn.variant({
-      variant: 'filled',
-      color: theme.primaryColor,
-    }).background,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
 
   inner: {

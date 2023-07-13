@@ -34,7 +34,8 @@ export const App = (): JSX.Element => {
               '#E4E3E3',
             ],
           },
-          primaryColor: 'logoGrey',
+          primaryColor: 'yellow',
+          // white: '#E4E3E3',
           headings: {
             // properties for all headings
             fontWeight: 400,
