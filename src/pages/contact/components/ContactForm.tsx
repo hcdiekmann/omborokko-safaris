@@ -105,7 +105,7 @@ export const ContactForm = (): JSX.Element => {
           )}
 
           <Group position='right' mt='md'>
-            <Button type='submit'>Submit</Button>
+            <Button type='submit'>Send</Button>
           </Group>
         </Box>
       </Card>

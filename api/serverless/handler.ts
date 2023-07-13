@@ -5,7 +5,7 @@ export default function handler(
   response: VercelResponse
 ) {
   response.status(200).json({
-    body: request.body,
+    body: { message: 'Hello from the API' },
     query: request.query,
     cookies: request.cookies,
   });
