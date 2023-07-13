@@ -7,6 +7,7 @@
     "@fontsource/caveat-brush": "^4.5.9",
     "@fontsource/rock-salt": "^4.5.8",
     "@fontsource/stylish": "^4.5.8",
+    "@google-cloud/recaptcha-enterprise": "^3.4.1",
     "@mantine/carousel": "^6.0.13",
     "@mantine/core": "^6.0.4",
     "@mantine/dates": "^6.0.16",
@@ -28,6 +29,7 @@
     "embla-carousel-react": "^8.0.0-rc07",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
@@ -59,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-google-recaptcha": "^2.1.5",
     "typedoc": "^0.24.8"
   }
 }
