@@ -83,8 +83,7 @@ const data = [
   },
   {
     image: '/pictures/JPG/Jackal.jpg',
-    title:
-      'Experience an up-close encounter with wildlife at our Waterhole observatory',
+    title: 'Encounter wildlife up-close at our Waterhole observatory',
     category: 'Activities',
   },
   {
