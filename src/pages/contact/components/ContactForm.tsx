@@ -19,7 +19,7 @@ export const ContactForm = (): JSX.Element => {
     initialValues: {
       name: '',
       email: '',
-      contactOption: 'enquiry',
+      contactOption: 'Message',
       message: '',
       adults: 1,
       children: 0,
@@ -41,6 +41,7 @@ export const ContactForm = (): JSX.Element => {
   ]);
 
   const handleSubmit = async (values: typeof form.values) => {
+    console.log(values);
     try {
       const response = await fetch('/api/serverless/sendMail', {
         method: 'POST',
@@ -100,8 +101,8 @@ export const ContactForm = (): JSX.Element => {
             label='Intent'
             description='Choose the purpose for contacting us'
           >
-            <Radio mt={2} value='enquiry' label='Enquiry or Feedback' />
-            <Radio mt={2} value='booking' label='Booking request' />
+            <Radio mt={2} value='Message' label='Enquiry or Feedback' />
+            <Radio mt={2} value='Booking' label='Booking request' />
           </Radio.Group>
           {form.values.contactOption === 'booking' && (
             <Group>
