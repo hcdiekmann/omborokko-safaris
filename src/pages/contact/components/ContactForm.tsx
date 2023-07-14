@@ -41,7 +41,6 @@ export const ContactForm = (): JSX.Element => {
   ]);
 
   const handleSubmit = async (values: typeof form.values) => {
-    console.log(values);
     try {
       const response = await fetch('/api/serverless/sendMail', {
         method: 'POST',
