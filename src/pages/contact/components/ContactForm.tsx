@@ -40,6 +40,26 @@ export const ContactForm = (): JSX.Element => {
     null,
   ]);
 
+  const handleSubmit = async (values: typeof form.values) => {
+    try {
+      const response = await fetch('/api/serverless/sendMail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        form.reset();
+      } else {
+        throw new Error('Email sending failed');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ScrollArea h={600}>
       <Card>
@@ -50,7 +70,9 @@ export const ContactForm = (): JSX.Element => {
           component='form'
           maw={400}
           mx='auto'
-          onSubmit={form.onSubmit(() => {})}
+          onSubmit={form.onSubmit(() => {
+            handleSubmit(form.values);
+          })}
         >
           <TextInput
             label='Name'
