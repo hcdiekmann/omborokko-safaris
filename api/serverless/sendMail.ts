@@ -7,8 +7,6 @@ export default async function (
 ) {
   const { name, email, contactOption, message } = request.body;
   const resend = new Resend(process.env['RESEND_API_KEY']);
-  console.log(process.env['RESEND_API_KEY']);
-  console.log(name, email, contactOption, message);
 
   try {
     const data = await resend.emails.send({
