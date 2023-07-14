@@ -5,15 +5,33 @@ export default async function (
   request: VercelRequest,
   response: VercelResponse
 ) {
-  const { name, email, subject, message } = request.body;
+  const { name, email, contactOption, message } = request.body;
   const resend = new Resend(process.env['RESEND_API_KEY']);
+  console.log(process.env['RESEND_API_KEY']);
+  console.log(name, email, contactOption, message);
 
   try {
     const data = await resend.emails.send({
-      from: `${name} <${email}>`,
+      from: 'omborokkosafaris@gmail.com',
       to: ['Omborokko Safaris <omborokkosafaris@gmail.com>'],
-      subject: subject,
-      html: `<p>${message}</p>`,
+      reply_to: email,
+      subject: contactOption,
+      html: `<head>
+      <style>
+          body {font-family: Arial, sans-serif;}
+          h1 {color: #333;}
+          p {font-size: 16px;}
+          .message {border: 1px solid #ddd; padding: 10px; margin-top: 10px; border-radius: 5px;}
+      </style>
+  </head>
+  <body>
+      <h1>New ${contactOption}}</h1>
+      <p><strong>Email:</strong> ${email}</p>
+      <div class='message'>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+      </div>
+  </body>`,
     });
     return response
       .status(200)
