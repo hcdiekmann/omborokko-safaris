@@ -10,7 +10,7 @@ export default async function (
 
   try {
     const data = await resend.emails.send({
-      from: 'omborokkosafaris@gmail.com',
+      from: 'admin@omborokkosafaris.com',
       to: ['Omborokko Safaris <omborokkosafaris@gmail.com>'],
       reply_to: email,
       subject: contactOption,
