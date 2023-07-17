@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderBottom: 0,
+    // position: 'static',
   },
 
   inner: {
@@ -82,6 +83,8 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
     setDrawerOpened(false); // Close the mobile menu when a link is clicked
     event.preventDefault();
     setPage(page);
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
   };
 
   const items = links.map((link) => {

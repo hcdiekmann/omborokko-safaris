@@ -54,6 +54,8 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
   ) => {
     event.preventDefault();
     setPage(page);
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
   };
 
   const items = links.map((link) => (
