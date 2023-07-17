@@ -13,6 +13,7 @@ import {
 } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
+import { notifications } from '@mantine/notifications';
 
 export const ContactForm = (): JSX.Element => {
   const form = useForm({
@@ -39,8 +40,10 @@ export const ContactForm = (): JSX.Element => {
     null,
     null,
   ]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values: typeof form.values) => {
+    setIsLoading(true);
     try {
       const response = await fetch('/api/serverless/sendMail', {
         method: 'POST',
@@ -56,11 +59,24 @@ export const ContactForm = (): JSX.Element => {
 
       if (response.ok) {
         form.reset();
+        notifications.show({
+          title: 'Email sent',
+          message: 'We will get back to you as soon as possible',
+          color: 'green',
+        });
       } else {
-        throw new Error('Email sending failed');
+        notifications.show({
+          title: 'Email sending failed',
+          message: 'Something went wrong, please try again later',
+          color: 'red',
+        });
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      // Set loading back to false when the request ends,
+      // whether it was successful or not
+      setIsLoading(false);
     }
   };
 
@@ -138,7 +154,9 @@ export const ContactForm = (): JSX.Element => {
         )}
 
         <Group position='right' mt='md'>
-          <Button type='submit'>Send</Button>
+          <Button loading={isLoading} type='submit'>
+            Send
+          </Button>
         </Group>
       </Box>
     </Card>
