@@ -3,7 +3,7 @@ import { CarouselComponent } from './components/CarouselComponent';
 
 export const HomePage = (): JSX.Element => {
   return (
-    <Container style={{ marginTop: 150 }}>
+    <Container mt={100}>
       <CarouselComponent />
     </Container>
   );

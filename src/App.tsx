@@ -5,6 +5,7 @@ import { queryClient } from './api/react-query/QueryClient';
 import { MantineProvider } from '@mantine/core';
 import { IndexPageProvider } from './pages/IndexPageProvider';
 import '@fontsource/caveat-brush';
+import { Notifications } from '@mantine/notifications';
 
 export const App = (): JSX.Element => {
   return (
@@ -51,6 +52,7 @@ export const App = (): JSX.Element => {
         withGlobalStyles
         withNormalizeCSS
       >
+        <Notifications />
         <QueryClientProvider client={queryClient}>
           <Router>
             <Routes>

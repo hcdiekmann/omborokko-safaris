@@ -1,9 +1,11 @@
-import { Title, Container } from '@mantine/core';
+import { Title, Container, Card } from '@mantine/core';
 
 export const CampingPage = (): JSX.Element => {
   return (
-    <Container>
-      <Title order={2}>Camping Page</Title>
+    <Container mt={100}>
+      <Card>
+        <Title order={2}>Remote Camping</Title>
+      </Card>
     </Container>
   );
 };

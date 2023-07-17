@@ -5,11 +5,30 @@ export default async function (
   request: VercelRequest,
   response: VercelResponse
 ) {
-  const { name, email, contactOption, message } = request.body;
   const resend = new Resend(process.env['RESEND_API_KEY']);
+  const {
+    name,
+    email,
+    contactOption,
+    message,
+    startDate,
+    endDate,
+    adults,
+    children,
+  } = request.body;
+
+  let extraDetails = '';
+  if (contactOption === 'Booking') {
+    extraDetails = `
+      <p><strong>Start Date:</strong> ${startDate}</p>
+      <p><strong>End Date:</strong> ${endDate}</p>
+      <p><strong>Number of Adults:</strong> ${adults}</p>
+      <p><strong>Number of Children:</strong> ${children}</p>
+    `;
+  }
 
   try {
-    const data = await resend.emails.send({
+    await resend.emails.send({
       from: 'admin@omborokkosafaris.com',
       to: ['Omborokko Safaris <omborokkosafaris@gmail.com>'],
       reply_to: email,
@@ -23,17 +42,15 @@ export default async function (
       </style>
   </head>
   <body>
-      <h1>New ${contactOption}}</h1>
+      <h1>New ${contactOption} from ${name}</h1>
       <p><strong>Email:</strong> ${email}</p>
+      ${extraDetails}
       <div class='message'>
-          <p><strong>Message:</strong></p>
           <p>${message}</p>
       </div>
   </body>`,
     });
-    return response
-      .status(200)
-      .json({ message: 'Email sent successfully', data });
+    return response.status(200);
   } catch (error) {
     console.error(error);
     return response.status(500);
