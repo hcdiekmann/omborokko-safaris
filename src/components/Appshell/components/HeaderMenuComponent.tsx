@@ -17,7 +17,7 @@ import {
 
 const useStyles = createStyles((theme) => ({
   header: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderBottom: 0,
     // position: 'static',
   },
