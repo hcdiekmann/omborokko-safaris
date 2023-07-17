@@ -10,6 +10,7 @@ import {
   Textarea,
   NumberInput,
   Flex,
+  Select,
 } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
@@ -22,6 +23,7 @@ export const ContactForm = (): JSX.Element => {
       email: '',
       contactOption: 'Enquiry',
       message: '',
+      accommodationType: 'Camping',
       adults: 1,
       children: 0,
     },
@@ -52,8 +54,12 @@ export const ContactForm = (): JSX.Element => {
         },
         body: JSON.stringify({
           ...values,
-          startDate: dateRange[0]?.toISOString(),
-          endDate: dateRange[1]?.toISOString(),
+          startDate: dateRange[0]
+            ? dateRange[0].toISOString().split('T')[0]
+            : null,
+          endDate: dateRange[1]
+            ? dateRange[1].toISOString().split('T')[0]
+            : null,
         }),
       });
 
@@ -131,6 +137,13 @@ export const ContactForm = (): JSX.Element => {
             direction='row'
             wrap='wrap'
           >
+            <Select
+              label='Accommodation'
+              placeholder='Select accommodation type'
+              withAsterisk
+              data={['Camping', 'Bed & Breakfast']}
+              {...form.getInputProps('accommodationType')}
+            />
             <DatePicker
               type='range'
               minDate={new Date()}
