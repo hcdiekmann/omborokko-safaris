@@ -11,6 +11,7 @@ export default async function (
     email,
     contactOption,
     message,
+    accommodationType,
     startDate,
     endDate,
     adults,
@@ -20,8 +21,9 @@ export default async function (
   let extraDetails = '';
   if (contactOption === 'Booking') {
     extraDetails = `
-      <p><strong>Start Date:</strong> ${startDate}</p>
-      <p><strong>End Date:</strong> ${endDate}</p>
+      <p><strong>${accommodationType}</strong></p>
+      <p><strong>From:</strong> ${startDate}</p>
+      <p><strong>To:</strong> ${endDate}</p>
       <p><strong>Number of Adults:</strong> ${adults}</p>
       <p><strong>Number of Children:</strong> ${children}</p>
     `;
@@ -50,9 +52,9 @@ export default async function (
       </div>
   </body>`,
     });
-    return response.status(200);
+    return response.status(200).send({ message: 'Email sent successfully' });
   } catch (error) {
     console.error(error);
-    return response.status(500);
+    return response.status(500).send({ error: 'Error sending email' });
   }
 }
