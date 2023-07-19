@@ -37,6 +37,21 @@ const useStyles = createStyles((theme) => ({
       marginBottom: theme.spacing.lg,
     },
   },
+  FacebookIcon: {
+    '&:hover': {
+      color: theme.colors.blue[6],
+    },
+  },
+  WhatsappIcon: {
+    '&:hover': {
+      color: theme.colors.green[6],
+    },
+  },
+  InstaIcon: {
+    '&:hover': {
+      color: theme.colors.orange[6],
+    },
+  },
 }));
 
 interface FooterCenteredProps {
@@ -82,15 +97,36 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
         <Group className={classes.links}>{items}</Group>
 
         <Group spacing='xs' position='right' noWrap>
-          <ActionIcon size='lg' variant='default' radius='xl'>
-            <IconBrandFacebook size='1.05rem' stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size='lg' variant='default' radius='xl'>
-            <IconBrandWhatsapp size='1.05rem' stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size='lg' variant='default' radius='xl'>
-            <IconBrandInstagram size='1.05rem' stroke={1.5} />
-          </ActionIcon>
+          <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
+            <ActionIcon
+              size='lg'
+              variant='default'
+              radius='xl'
+              className={classes.FacebookIcon}
+            >
+              <IconBrandFacebook size='1.05rem' stroke={1.5} />
+            </ActionIcon>
+          </a>
+          <a href='https://www.whatsapp.com' target='_blank' rel='noreferrer'>
+            <ActionIcon
+              size='lg'
+              variant='default'
+              radius='xl'
+              className={classes.WhatsappIcon}
+            >
+              <IconBrandWhatsapp size='1.05rem' stroke={1.5} />
+            </ActionIcon>
+          </a>
+          <a href='https://www.instagram.com' target='_blank' rel='noreferrer'>
+            <ActionIcon
+              size='lg'
+              variant='default'
+              radius='xl'
+              className={classes.InstaIcon}
+            >
+              <IconBrandInstagram size='1.05rem' stroke={1.5} />
+            </ActionIcon>
+          </a>
         </Group>
       </div>
     </div>
