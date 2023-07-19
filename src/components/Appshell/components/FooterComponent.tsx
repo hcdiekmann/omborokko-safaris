@@ -97,7 +97,11 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
         <Group className={classes.links}>{items}</Group>
 
         <Group spacing='xs' position='right' noWrap>
-          <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
+          <a
+            href='https://www.facebook.com/omborokko/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <ActionIcon
               size='lg'
               variant='default'
@@ -107,7 +111,11 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
               <IconBrandFacebook size='1.05rem' stroke={1.5} />
             </ActionIcon>
           </a>
-          <a href='https://www.whatsapp.com' target='_blank' rel='noreferrer'>
+          <a
+            href='https://api.whatsapp.com/send?phone=264817683446'
+            target='_blank'
+            rel='noreferrer'
+          >
             <ActionIcon
               size='lg'
               variant='default'
@@ -117,7 +125,11 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
               <IconBrandWhatsapp size='1.05rem' stroke={1.5} />
             </ActionIcon>
           </a>
-          <a href='https://www.instagram.com' target='_blank' rel='noreferrer'>
+          <a
+            href='https://www.instagram.com/omborokko/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <ActionIcon
               size='lg'
               variant='default'
