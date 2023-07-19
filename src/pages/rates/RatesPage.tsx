@@ -29,12 +29,10 @@ export const RatesPage = (): JSX.Element => {
           </Badge>
 
           <Text fz='sm' c='dimmed'>
-            {' '}
-            - We currently only accept cash payments.
+            We currently only accept cash payments.
           </Text>
           <Text fz='sm' c='dimmed'>
-            {' '}
-            - All payments shall be made upon arrival.
+            All payments shall be made upon arrival.
           </Text>
         </Card>
       </Card>
