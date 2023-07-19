@@ -73,6 +73,12 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
     window.scrollTo(0, 0);
   };
 
+  const handleTitleClick = () => {
+    setPage('/home');
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+
   const items = links.map((link) => (
     <Anchor<'a'>
       color='dimmed'
@@ -91,7 +97,9 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
       <div className={classes.inner}>
         <Flex align='center'>
           <img src={Logo} alt={'Loading'} height={45} />
-          <Title order={3}>Omborokko Safaris</Title>
+          <Title order={3} onClick={handleTitleClick}>
+            Omborokko Safaris
+          </Title>
         </Flex>
 
         <Group className={classes.links}>{items}</Group>
