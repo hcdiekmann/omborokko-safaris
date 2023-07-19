@@ -23,7 +23,7 @@ export const AppShellComponent = (props: AppShellProps) => {
         },
         {
           link: '/b&b',
-          label: 'Farmhouse B&B',
+          label: 'Bed & Breakfast',
         },
       ],
     },

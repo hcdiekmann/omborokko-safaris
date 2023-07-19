@@ -77,19 +77,19 @@ const data = [
     category: 'Bed & Breakfast',
   },
   {
-    image: '/pictures/webp/CampFireplaceTreeDarkend.jpg',
-    title: 'Adventurous camping amidst majestic Leadwood trees',
-    category: 'Camping',
+    image: '/pictures/webp/CampFireplaceTreeDarkend.webp',
+    title: 'Adventurous Camping amidst majestic Leadwood trees',
+    category: 'Remote Camping',
   },
   {
-    image: '/pictures/JPG/Jackal.jpg',
-    title: 'Encounter wildlife up-close at our Waterhole observatory',
-    category: 'Activities',
+    image: '/pictures/webp/Jackal.webp',
+    title: 'Encounter Wildlife at our Waterhole observatory',
+    category: 'Remote Camping',
   },
   {
     image: '/pictures/webp/B&BBar.webp',
-    title: 'Relax and unwind at our Pool Deck',
-    category: 'Swimming Pool',
+    title: 'Relax and unwind at our Farmhouse Patio',
+    category: 'Bed & Breakfast',
   },
 ];
 
