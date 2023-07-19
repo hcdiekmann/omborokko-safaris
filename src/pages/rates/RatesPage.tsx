@@ -14,7 +14,7 @@ const bedElements = [
 export const RatesPage = (): JSX.Element => {
   return (
     <Container mt={100}>
-      <Card>
+      <Card shadow='md' radius='md'>
         <Title order={2} align='center'>
           Our Rates
         </Title>
@@ -24,14 +24,22 @@ export const RatesPage = (): JSX.Element => {
         <Title order={3}>Bed & Breakfast</Title>
         <PriceTable elements={bedElements} />
         <Card>
+          {/* <Alert
+            icon={<IconAlertCircle size='1rem' />}
+            title='Please Note'
+            color='yellow'
+          >
+            We currently only accept cash payments. All payments shall be made
+            upon arrival.
+          </Alert> */}
           <Badge color='yellow' variant='light'>
             Please Note
           </Badge>
 
-          <Text fz='sm' c='dimmed'>
+          <Text fz='sm' c='dimmed' ml={5}>
             We currently only accept cash payments.
           </Text>
-          <Text fz='sm' c='dimmed'>
+          <Text fz='sm' c='dimmed' ml={5}>
             All payments shall be made upon arrival.
           </Text>
         </Card>

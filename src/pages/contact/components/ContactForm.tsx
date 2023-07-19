@@ -88,7 +88,7 @@ export const ContactForm = (): JSX.Element => {
   };
 
   return (
-    <Card>
+    <Card shadow='md' radius='md'>
       <Title order={2} align='center'>
         Contact us
       </Title>
