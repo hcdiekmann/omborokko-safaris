@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import {
@@ -38,36 +40,15 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+interface CarouselComponentProps {
+  setPage: (page: string) => void;
+}
+
 interface CardProps {
   image: string;
   title: string;
   category: string;
-}
-
-function Card({ image, title, category }: CardProps) {
-  const { classes } = useStyles();
-
-  return (
-    <Paper
-      shadow='md'
-      p='xl'
-      radius='md'
-      sx={{ backgroundImage: `url(${image})` }}
-      className={classes.card}
-    >
-      <div>
-        <Text className={classes.category} size='xs'>
-          {category}
-        </Text>
-        <Title order={3} className={classes.title}>
-          {title}
-        </Title>
-      </div>
-      <Button variant='white' color='dark'>
-        Explore
-      </Button>
-    </Paper>
-  );
+  setPage: (page: string) => void;
 }
 
 const data = [
@@ -93,12 +74,61 @@ const data = [
   },
 ];
 
-export const CarouselComponent = (): JSX.Element => {
+function Card({ image, title, category, setPage }: CardProps) {
+  const { classes } = useStyles();
+
+  const handleExploreClick = () => {
+    let pageToNavigate = '';
+
+    switch (category) {
+      case 'Bed & Breakfast':
+        pageToNavigate = '/b&b';
+        break;
+      case 'Remote Camping':
+        pageToNavigate = '/camping';
+        break;
+      // Add more cases as needed
+      default:
+        pageToNavigate = '/home';
+    }
+
+    setPage(pageToNavigate);
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <Paper
+      shadow='md'
+      p='xl'
+      radius='md'
+      sx={{ backgroundImage: `url(${image})` }}
+      className={classes.card}
+    >
+      <div>
+        <Text className={classes.category} size='xs'>
+          {category}
+        </Text>
+        <Title order={3} className={classes.title}>
+          {title}
+        </Title>
+      </div>
+      <Button variant='white' color='dark' onClick={handleExploreClick}>
+        Explore
+      </Button>
+    </Paper>
+  );
+}
+
+export const CarouselComponent = ({
+  setPage,
+}: CarouselComponentProps): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const autoplay = useRef(Autoplay({ delay: 4000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <Card {...item} />
+      <Card {...item} setPage={setPage} />
     </Carousel.Slide>
   ));
 
@@ -111,6 +141,9 @@ export const CarouselComponent = (): JSX.Element => {
       loop
       withIndicators
       slidesToScroll={mobile ? 1 : 2}
+      plugins={[autoplay.current]}
+      onMouseEnter={autoplay.current.stop}
+      onMouseLeave={autoplay.current.reset}
     >
       {slides}
     </Carousel>

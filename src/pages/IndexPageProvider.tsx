@@ -12,7 +12,7 @@ export const IndexPageProvider = (): JSX.Element => {
   function render() {
     switch (page) {
       case '/home':
-        return <HomePage />;
+        return <HomePage setPage={setPage} />;
       case '/rates':
         return <RatesPage />;
       case '/contact':
@@ -22,7 +22,7 @@ export const IndexPageProvider = (): JSX.Element => {
       case '/b&b':
         return <BBPage />;
       default:
-        return <HomePage />;
+        return <HomePage setPage={setPage} />;
     }
   }
 
