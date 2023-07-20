@@ -19,7 +19,7 @@ export const PriceTable = ({ elements }: PriceTableProps): JSX.Element => {
   ));
 
   return (
-    <Table>
+    <Table striped>
       <thead>
         <tr>
           <th>Description</th>

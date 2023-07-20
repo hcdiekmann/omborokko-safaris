@@ -69,7 +69,7 @@ const data = [
   },
   {
     image: '/pictures/webp/B&BBar.webp',
-    title: 'Relax and unwind at our Farmhouse Patio',
+    title: 'Relax and unwind at our Farmhouse patio',
     category: 'Bed & Breakfast',
   },
 ];
