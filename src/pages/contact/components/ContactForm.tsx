@@ -45,8 +45,19 @@ export const ContactForm = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values: typeof form.values) => {
-    setIsLoading(true);
+    if (
+      values.contactOption === 'Booking' &&
+      (!dateRange[0] || !dateRange[1])
+    ) {
+      notifications.show({
+        title: 'Invalid Date',
+        message: 'Select a valid date range',
+        color: 'red',
+      });
+      return;
+    }
     try {
+      setIsLoading(true);
       const response = await fetch('/api/serverless/sendMail', {
         method: 'POST',
         headers: {
@@ -72,7 +83,7 @@ export const ContactForm = (): JSX.Element => {
         });
       } else {
         notifications.show({
-          title: 'Email sending failed',
+          title: 'Sending failed',
           message: 'Something went wrong, please try again later',
           color: 'red',
         });
@@ -141,7 +152,6 @@ export const ContactForm = (): JSX.Element => {
             <Select
               label='Accommodation'
               placeholder='Select accommodation type'
-              withAsterisk
               data={['Camping', 'Bed & Breakfast']}
               {...form.getInputProps('accommodationType')}
             />
@@ -151,19 +161,20 @@ export const ContactForm = (): JSX.Element => {
               value={dateRange}
               onChange={setDateRange}
             />
-            <NumberInput
-              label='Number of Children'
-              description='Aged 16 or younger'
-              withAsterisk
-              min={0}
-              {...form.getInputProps('children')}
-            />
+
             <NumberInput
               label='Number of Adults'
-              withAsterisk
               min={1}
               {...form.getInputProps('adults')}
             />
+            {form.values.accommodationType === 'Camping' && (
+              <NumberInput
+                label='Number of Children'
+                description='Aged 16 or younger'
+                min={0}
+                {...form.getInputProps('children')}
+              />
+            )}
           </Flex>
         )}
 
