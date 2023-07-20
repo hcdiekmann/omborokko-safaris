@@ -58,13 +58,13 @@ const data = [
     category: 'Bed & Breakfast',
   },
   {
-    image: '/pictures/webp/CampFireplaceTreeDarkend.webp',
-    title: 'Adventurous Camping amidst majestic Leadwood trees',
+    image: '/pictures/webp/Jackal.webp',
+    title: 'Encounter Wildlife at our Waterhole observatory',
     category: 'Remote Camping',
   },
   {
-    image: '/pictures/webp/Jackal.webp',
-    title: 'Encounter Wildlife at our Waterhole observatory',
+    image: '/pictures/webp/CampFarViewDark.webp',
+    title: 'Adventurous Camping amidst majestic Leadwood trees',
     category: 'Remote Camping',
   },
   {
