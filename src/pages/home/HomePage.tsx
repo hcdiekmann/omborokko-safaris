@@ -1,4 +1,5 @@
 import { Container } from '@mantine/core';
+import { WelcomeText } from './components/WelcomeText';
 import { CarouselComponent } from './components/CarouselComponent';
 
 interface HomePageProps {
@@ -7,7 +8,8 @@ interface HomePageProps {
 
 export const HomePage = ({ setPage }: HomePageProps): JSX.Element => {
   return (
-    <Container mt={100}>
+    <Container mt={75}>
+      <WelcomeText />
       <CarouselComponent setPage={setPage} />
     </Container>
   );
