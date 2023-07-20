@@ -3,10 +3,10 @@ import { Card, Text, Title } from '@mantine/core';
 export const WelcomeText = (): JSX.Element => {
   return (
     <>
-      <Title order={1} align='center' style={{ color: 'whitesmoke' }}>
+      <Title size={70} order={1} align='center' style={{ color: 'whitesmoke' }}>
         Welcome to Omborokko Safaris
       </Title>
-      <Text size={17} weight={350} mt={10} mb={10} color='white' align='center'>
+      <Text size={18} weight={350} mt={10} mb={10} color='white' align='center'>
         A captivating farm retreat nestled amidst the natural splendor of
         Namibia. Sprawling over a vast 6000-hectare plain, our cattle farm is a
         thriving sanctuary for Namibia's diverse wildlife. Whether you choose

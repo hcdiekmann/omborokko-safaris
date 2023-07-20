@@ -175,11 +175,11 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
   };
 
   return (
-    <Header height={80} className={classes.header} mb={120}>
+    <Header height={85} className={classes.header} mb={120}>
       <Container>
         <div className={classes.inner}>
           <Flex align='center'>
-            <img src={Logo} alt={'Loading'} height={75} />
+            <img src={Logo} alt={'Loading'} height={75} width={57} />
             <Title order={1} onClick={handleTitleClick}>
               Omborokko Safaris
             </Title>

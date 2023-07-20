@@ -8,7 +8,7 @@ interface HomePageProps {
 
 export const HomePage = ({ setPage }: HomePageProps): JSX.Element => {
   return (
-    <Container mt={75}>
+    <Container mt={50}>
       <WelcomeText />
       <CarouselComponent setPage={setPage} />
     </Container>

@@ -96,7 +96,7 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
     <div className={classes.footer}>
       <div className={classes.inner}>
         <Flex align='center'>
-          <img src={Logo} alt={'Loading'} height={45} />
+          <img src={Logo} alt={'Loading'} height={45} width={35} />
           <Title order={3} onClick={handleTitleClick}>
             Omborokko Safaris
           </Title>
