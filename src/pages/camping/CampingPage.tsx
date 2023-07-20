@@ -41,8 +41,26 @@ export const CampingPage = (): JSX.Element => {
             </Text>
           </div>
           <div>
-            <Text weight={700}>Amenities</Text>
-            <List mt={5} spacing='xs' size='sm' center>
+            <Text fw={700}>Amenities</Text>
+            <List fw={500} mt={5} spacing='xs' size='sm' center>
+              <List.Item
+                icon={
+                  <ThemeIcon color='yellow' size={24}>
+                    <IconCampfire size='1rem' />
+                  </ThemeIcon>
+                }
+              >
+                Firepit with grill
+              </List.Item>
+              <List.Item
+                icon={
+                  <ThemeIcon color='yellow' size={24}>
+                    <IconBottle size='1rem' />
+                  </ThemeIcon>
+                }
+              >
+                Fresh drinking water
+              </List.Item>
               <List.Item
                 icon={
                   <ThemeIcon color='yellow' size={24}>
@@ -59,25 +77,7 @@ export const CampingPage = (): JSX.Element => {
                   </ThemeIcon>
                 }
               >
-                Warm-water showers
-              </List.Item>
-              <List.Item
-                icon={
-                  <ThemeIcon color='yellow' size={24}>
-                    <IconBottle size='1rem' />
-                  </ThemeIcon>
-                }
-              >
-                Fresh drinking water
-              </List.Item>
-              <List.Item
-                icon={
-                  <ThemeIcon color='yellow' size={24}>
-                    <IconCampfire size='1rem' />
-                  </ThemeIcon>
-                }
-              >
-                Fireplace with grill
+                Warm water showers
               </List.Item>
             </List>
           </div>
