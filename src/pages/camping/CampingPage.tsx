@@ -7,9 +7,12 @@ import {
   ThemeIcon,
   SimpleGrid,
   Group,
+  Alert,
+  Button,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';
 import {
+  IconAlertCircle,
   IconBath,
   IconBottle,
   IconCampfire,
@@ -94,6 +97,21 @@ export const CampingPage = (): JSX.Element => {
         </SimpleGrid>
 
         <PictureCarousel pictures={pictures}></PictureCarousel>
+        <Alert
+          icon={<IconAlertCircle size='1rem' />}
+          title='Please Note'
+          color='yellow'
+          mt={10}
+        >
+          <List mt={0} size='sm'>
+            <List.Item>A 4x4 off-road vehicle is advised</List.Item>
+            <List.Item>No electrical outlets available</List.Item>
+          </List>
+        </Alert>
+        <Group mt={10} position='center'>
+          <Button>View Rates</Button>
+          <Button>Book Now</Button>
+        </Group>
       </Card>
     </Container>
   );
