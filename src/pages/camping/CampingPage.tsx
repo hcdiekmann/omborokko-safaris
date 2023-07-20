@@ -6,6 +6,7 @@ import {
   List,
   ThemeIcon,
   SimpleGrid,
+  Group,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';
 import {
@@ -14,11 +15,20 @@ import {
   IconCampfire,
   IconToiletPaper,
 } from '@tabler/icons-react';
+import { PictureCarousel } from '../../components/PictureCarousel';
+
+const pictures = [
+  '/pictures/webp/CampFireplaceRiverView.webp',
+  '/pictures/webp/CampFarView.webp',
+  '/pictures/webp/CampFireplaceTree.webp',
+  '/pictures/webp/CampAblution.webp',
+  '/pictures/webp/CampFromRiver.webp',
+];
 
 export const CampingPage = (): JSX.Element => {
   return (
-    <Container mt={100}>
-      <Card>
+    <Container mt={30}>
+      <Card pt={0}>
         <Title order={2} size={40}>
           Remote Camping
         </Title>
@@ -82,6 +92,8 @@ export const CampingPage = (): JSX.Element => {
             </List>
           </div>
         </SimpleGrid>
+
+        <PictureCarousel pictures={pictures}></PictureCarousel>
       </Card>
     </Container>
   );
