@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import {
@@ -38,14 +40,62 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+interface CarouselComponentProps {
+  setPage: (page: string) => void;
+}
+
 interface CardProps {
   image: string;
   title: string;
   category: string;
+  setPage: (page: string) => void;
 }
 
-function Card({ image, title, category }: CardProps) {
+const data = [
+  {
+    image: '/pictures/webp/B&BFamilyRoomBeds.webp',
+    title: 'Indulge in luxurious tranquility at our Farm Retreat',
+    category: 'Bed & Breakfast',
+  },
+  {
+    image: '/pictures/webp/CampFireplaceTreeDarkend.webp',
+    title: 'Adventurous Camping amidst majestic Leadwood trees',
+    category: 'Remote Camping',
+  },
+  {
+    image: '/pictures/webp/Jackal.webp',
+    title: 'Encounter Wildlife at our Waterhole observatory',
+    category: 'Remote Camping',
+  },
+  {
+    image: '/pictures/webp/B&BBar.webp',
+    title: 'Relax and unwind at our Farmhouse Patio',
+    category: 'Bed & Breakfast',
+  },
+];
+
+function Card({ image, title, category, setPage }: CardProps) {
   const { classes } = useStyles();
+
+  const handleExploreClick = () => {
+    let pageToNavigate = '';
+
+    switch (category) {
+      case 'Bed & Breakfast':
+        pageToNavigate = '/b&b';
+        break;
+      case 'Remote Camping':
+        pageToNavigate = '/camping';
+        break;
+      // Add more cases as needed
+      default:
+        pageToNavigate = '/home';
+    }
+
+    setPage(pageToNavigate);
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
 
   return (
     <Paper
@@ -63,42 +113,22 @@ function Card({ image, title, category }: CardProps) {
           {title}
         </Title>
       </div>
-      <Button variant='white' color='dark'>
+      <Button variant='white' color='dark' onClick={handleExploreClick}>
         Explore
       </Button>
     </Paper>
   );
 }
 
-const data = [
-  {
-    image: '/pictures/webp/B&BFamilyRoomBeds.webp',
-    title: 'Indulge in luxurious tranquility at our Farm Retreat',
-    category: 'Bed & Breakfast',
-  },
-  {
-    image: '/pictures/webp/CampFireplaceTreeDarkend.jpg',
-    title: 'Adventurous camping amidst majestic Leadwood trees',
-    category: 'Camping',
-  },
-  {
-    image: '/pictures/JPG/Jackal.jpg',
-    title: 'Encounter wildlife up-close at our Waterhole observatory',
-    category: 'Activities',
-  },
-  {
-    image: '/pictures/webp/B&BBar.webp',
-    title: 'Relax and unwind at our Pool Deck',
-    category: 'Swimming Pool',
-  },
-];
-
-export const CarouselComponent = (): JSX.Element => {
+export const CarouselComponent = ({
+  setPage,
+}: CarouselComponentProps): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const autoplay = useRef(Autoplay({ delay: 4000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <Card {...item} />
+      <Card {...item} setPage={setPage} />
     </Carousel.Slide>
   ));
 
@@ -111,6 +141,9 @@ export const CarouselComponent = (): JSX.Element => {
       loop
       withIndicators
       slidesToScroll={mobile ? 1 : 2}
+      plugins={[autoplay.current]}
+      onMouseEnter={autoplay.current.stop}
+      onMouseLeave={autoplay.current.reset}
     >
       {slides}
     </Carousel>

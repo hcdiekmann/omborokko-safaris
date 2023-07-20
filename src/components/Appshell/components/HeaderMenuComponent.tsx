@@ -87,6 +87,13 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
     window.scrollTo(0, 0);
   };
 
+  const handleTitleClick = () => {
+    setDrawerOpened(false); // Close the mobile menu when the title is clicked
+    setPage('/home');
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <a
@@ -173,7 +180,9 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
         <div className={classes.inner}>
           <Flex align='center'>
             <img src={Logo} alt={'Loading'} height={75} />
-            <Title order={1}>Omborokko Safaris</Title>
+            <Title order={1} onClick={handleTitleClick}>
+              Omborokko Safaris
+            </Title>
           </Flex>
           <Group spacing={5} className={classes.links}>
             {items}

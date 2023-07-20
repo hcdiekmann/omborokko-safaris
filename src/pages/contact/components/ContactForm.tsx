@@ -55,7 +55,7 @@ export const ContactForm = (): JSX.Element => {
         body: JSON.stringify({
           ...values,
           startDate: dateRange[0]
-            ? dateRange[0].toISOString().split('T')[0]
+            ? dateRange[0].toISOString().split('T')[0] // Convert to ISO string and remove time
             : null,
           endDate: dateRange[1]
             ? dateRange[1].toISOString().split('T')[0]
@@ -83,11 +83,12 @@ export const ContactForm = (): JSX.Element => {
       // Set loading back to false when the request ends,
       // whether it was successful or not
       setIsLoading(false);
+      setDateRange([null, null]);
     }
   };
 
   return (
-    <Card>
+    <Card shadow='md' radius='md'>
       <Title order={2} align='center'>
         Contact us
       </Title>
