@@ -36,8 +36,7 @@ export const BBPage = (): JSX.Element => {
                 wilderness, witnessing the serene Namibian sunsets right from
                 your doorstep. An outdoor undercover patio can be used to relax
                 and read a book while enjoying the astonishing view of the
-                Omborokko mountains. Breakfast will also be served outside on
-                the patio.
+                Omborokko mountains.
               </Balancer>
             </Text>
           </div>
