@@ -6,19 +6,36 @@ import {
   List,
   ThemeIcon,
   SimpleGrid,
+  Group,
+  Alert,
+  Button,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';
 import {
+  IconAlertCircle,
   IconBath,
   IconBottle,
   IconCampfire,
   IconToiletPaper,
 } from '@tabler/icons-react';
+import { PictureCarousel } from '../../components/PictureCarousel';
 
-export const CampingPage = (): JSX.Element => {
+const pictures = [
+  '/pictures/webp/CampFireplaceRiverView.webp',
+  '/pictures/webp/CampFarView.webp',
+  '/pictures/webp/CampFireplaceTree.webp',
+  '/pictures/webp/CampAblution.webp',
+  '/pictures/webp/CampFromRiver.webp',
+];
+
+interface CampingPageProps {
+  setPage: (page: string) => void;
+}
+
+export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
   return (
-    <Container mt={100}>
-      <Card>
+    <Container mt={30}>
+      <Card pt={0}>
         <Title order={2} size={40}>
           Remote Camping
         </Title>
@@ -82,6 +99,37 @@ export const CampingPage = (): JSX.Element => {
             </List>
           </div>
         </SimpleGrid>
+
+        <PictureCarousel pictures={pictures}></PictureCarousel>
+        <Alert
+          icon={<IconAlertCircle size='1rem' />}
+          title='Important'
+          color='yellow'
+          mt={10}
+        >
+          <List mt={0} size='sm'>
+            <List.Item>A 4x4 off-road vehicle is advised</List.Item>
+            <List.Item>No electrical outlets available</List.Item>
+          </List>
+        </Alert>
+        <Group mt={10} position='center'>
+          <Button
+            onClick={() => {
+              setPage('/rates');
+              window.scrollTo(0, 0);
+            }}
+          >
+            View Rates
+          </Button>
+          <Button
+            onClick={() => {
+              setPage('/contact');
+              window.scrollTo(0, 0);
+            }}
+          >
+            Book Now
+          </Button>
+        </Group>
       </Card>
     </Container>
   );
