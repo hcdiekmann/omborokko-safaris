@@ -28,7 +28,11 @@ const pictures = [
   '/pictures/webp/CampFromRiver.webp',
 ];
 
-export const CampingPage = (): JSX.Element => {
+interface CampingPageProps {
+  setPage: (page: string) => void;
+}
+
+export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
   return (
     <Container mt={30}>
       <Card pt={0}>
@@ -99,7 +103,7 @@ export const CampingPage = (): JSX.Element => {
         <PictureCarousel pictures={pictures}></PictureCarousel>
         <Alert
           icon={<IconAlertCircle size='1rem' />}
-          title='Please Note'
+          title='Important'
           color='yellow'
           mt={10}
         >
@@ -109,8 +113,22 @@ export const CampingPage = (): JSX.Element => {
           </List>
         </Alert>
         <Group mt={10} position='center'>
-          <Button>View Rates</Button>
-          <Button>Book Now</Button>
+          <Button
+            onClick={() => {
+              setPage('/rates');
+              window.scrollTo(0, 0);
+            }}
+          >
+            View Rates
+          </Button>
+          <Button
+            onClick={() => {
+              setPage('/contact');
+              window.scrollTo(0, 0);
+            }}
+          >
+            Book Now
+          </Button>
         </Group>
       </Card>
     </Container>

@@ -6,6 +6,8 @@ import {
   List,
   SimpleGrid,
   ThemeIcon,
+  Button,
+  Group,
 } from '@mantine/core';
 import {
   IconSwimming,
@@ -15,11 +17,25 @@ import {
   IconWifi,
 } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
+import { PictureCarousel } from '../../components/PictureCarousel';
 
-export const BBPage = (): JSX.Element => {
+const pictures = [
+  '/pictures/webp/B&BFamilyRoomBeds.webp',
+  '/pictures/webp/B&BFamilyUnitOutside.webp',
+  '/pictures/webp/B&BFamilyRoomSingleBed.webp',
+  '/pictures/webp/B&BOutsidePatioDrinks.webp',
+  '/pictures/webp/B&BEn-suite.webp',
+  '/pictures/webp/B&BBar.webp',
+];
+
+interface BBPageProps {
+  setPage: (page: string) => void;
+}
+
+export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
   return (
-    <Container mt={100}>
-      <Card>
+    <Container mt={30}>
+      <Card pt={0}>
         <Title order={2} size={40}>
           Bed & Breakfast
         </Title>
@@ -91,6 +107,25 @@ export const BBPage = (): JSX.Element => {
             </List>
           </div>
         </SimpleGrid>
+        <PictureCarousel pictures={pictures}></PictureCarousel>
+        <Group mt={10} position='center'>
+          <Button
+            onClick={() => {
+              setPage('/rates');
+              window.scrollTo(0, 0);
+            }}
+          >
+            View Rates
+          </Button>
+          <Button
+            onClick={() => {
+              setPage('/contact');
+              window.scrollTo(0, 0);
+            }}
+          >
+            Book Now
+          </Button>
+        </Group>
       </Card>
     </Container>
   );

@@ -18,9 +18,9 @@ export const IndexPageProvider = (): JSX.Element => {
       case '/contact':
         return <ContactPage />;
       case '/camping':
-        return <CampingPage />;
+        return <CampingPage setPage={setPage} />;
       case '/b&b':
-        return <BBPage />;
+        return <BBPage setPage={setPage} />;
       default:
         return <HomePage setPage={setPage} />;
     }
