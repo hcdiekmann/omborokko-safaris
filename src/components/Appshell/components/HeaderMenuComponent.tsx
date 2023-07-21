@@ -14,6 +14,7 @@ import {
   Flex,
   Title,
 } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -68,42 +69,18 @@ interface HeaderProps {
     label: string;
     links?: { link: string; label: string }[];
   }[];
-  setPage(page: string): void;
 }
 
-export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
+export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
   const [opened] = useDisclosure(false);
   const [drawerOpened, setDrawerOpened] = useState(false);
   const { classes } = useStyles();
 
-  const handleLinkClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    page: string
-  ) => {
-    setDrawerOpened(false); // Close the mobile menu when a link is clicked
-    event.preventDefault();
-    setPage(page);
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-  };
-
-  const handleTitleClick = () => {
-    setDrawerOpened(false); // Close the mobile menu when the title is clicked
-    setPage('/home');
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-  };
-
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <a
-        key={item.link}
-        href={item.link}
-        className={classes.link}
-        onClick={(event) => handleLinkClick(event, item.link)}
-      >
+      <Link key={item.link} to={item.link} className={classes.link}>
         {item.label}
-      </a>
+      </Link>
     ));
 
     if (menuItems) {
@@ -115,16 +92,12 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
           withinPortal
         >
           <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => handleLinkClick(event, link.link)}
-            >
+            <Link to={link.link} className={classes.link}>
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <IconChevronDown size='0.9rem' stroke={1.5} />
               </Center>
-            </a>
+            </Link>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
         </Menu>
@@ -132,14 +105,9 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => handleLinkClick(event, link.link)}
-      >
+      <Link key={link.label} to={link.link} className={classes.link}>
         {link.label}
-      </a>
+      </Link>
     );
   });
 
@@ -149,27 +117,17 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
         return (
           <Flex key={link.label} direction='column' columnGap={20}>
             {link.links.map((item) => (
-              <a
-                key={item.link}
-                href={item.link}
-                className={classes.link}
-                onClick={(event) => handleLinkClick(event, item.link)}
-              >
+              <Link key={item.link} to={item.link} className={classes.link}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </Flex>
         );
       }
       return (
-        <a
-          key={link.label}
-          href={link.link}
-          className={classes.link}
-          onClick={(event) => handleLinkClick(event, link.link)}
-        >
+        <Link key={link.label} to={link.link} className={classes.link}>
           {link.label}
-        </a>
+        </Link>
       );
     });
   };
@@ -180,9 +138,9 @@ export function HeaderMenu({ Logo, links = [], setPage }: HeaderProps) {
         <div className={classes.inner}>
           <Flex align='center'>
             <img src={Logo} alt={'Loading'} height={75} width={57} />
-            <Title order={1} onClick={handleTitleClick}>
-              Omborokko Safaris
-            </Title>
+            <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Title order={1}>Omborokko Safaris</Title>
+            </Link>
           </Flex>
           <Group spacing={5} className={classes.links}>
             {items}

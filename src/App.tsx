@@ -3,9 +3,28 @@ import { QueryClientProvider } from 'react-query';
 import { queryClient } from './api/react-query/QueryClient';
 
 import { MantineProvider } from '@mantine/core';
-import { IndexPageProvider } from './pages/IndexPageProvider';
+import {
+  FullAboutPage,
+  FullBBPage,
+  FullCampingPage,
+  FullContactPage,
+  FullHomePage,
+  FullRatesPage,
+} from './pages/PageProvider';
 import '@fontsource/caveat-brush';
 import { Notifications } from '@mantine/notifications';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export const App = (): JSX.Element => {
   return (
@@ -55,8 +74,14 @@ export const App = (): JSX.Element => {
         <Notifications />
         <QueryClientProvider client={queryClient}>
           <Router>
+            <ScrollToTop />
             <Routes>
-              <Route path='/' element={<IndexPageProvider />} />
+              <Route path='/' element={<FullHomePage />} />
+              <Route path='/about' element={<FullAboutPage />} />
+              <Route path='/rates' element={<FullRatesPage />} />
+              <Route path='/contact' element={<FullContactPage />} />
+              <Route path='/camping' element={<FullCampingPage />} />
+              <Route path='/b&b' element={<FullBBPage />} />
             </Routes>
           </Router>
         </QueryClientProvider>

@@ -1,6 +1,5 @@
 import {
   createStyles,
-  Anchor,
   Group,
   ActionIcon,
   rem,
@@ -12,6 +11,7 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
 } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -36,6 +36,8 @@ const useStyles = createStyles((theme) => ({
       marginTop: theme.spacing.lg,
       marginBottom: theme.spacing.lg,
     },
+    color: theme.colors.gray[6],
+    fontSize: theme.fontSizes.sm,
   },
   FacebookIcon: {
     '&:hover': {
@@ -57,39 +59,15 @@ const useStyles = createStyles((theme) => ({
 interface FooterCenteredProps {
   Logo: string;
   links: { link: string; label: string }[];
-  setPage: (page: string) => void;
 }
 
-export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
+export function FooterCentered({ Logo, links }: FooterCenteredProps) {
   const { classes } = useStyles();
 
-  const handleLinkClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    page: string
-  ) => {
-    event.preventDefault();
-    setPage(page);
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-  };
-
-  const handleTitleClick = () => {
-    setPage('/home');
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-  };
-
   const items = links.map((link) => (
-    <Anchor<'a'>
-      color='dimmed'
-      key={link.label}
-      href={link.link}
-      sx={{ lineHeight: 1 }}
-      onClick={(event) => handleLinkClick(event, link.link)}
-      size='sm'
-    >
+    <Link to={link.link} key={link.label} className={classes.links}>
       {link.label}
-    </Anchor>
+    </Link>
   ));
 
   return (
@@ -97,9 +75,9 @@ export function FooterCentered({ Logo, links, setPage }: FooterCenteredProps) {
       <div className={classes.inner}>
         <Flex align='center'>
           <img src={Logo} alt={'Loading'} height={45} width={35} />
-          <Title order={3} onClick={handleTitleClick}>
-            Omborokko Safaris
-          </Title>
+          <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Title order={3}>Omborokko Safaris</Title>
+          </Link>
         </Flex>
 
         <Group className={classes.links}>{items}</Group>

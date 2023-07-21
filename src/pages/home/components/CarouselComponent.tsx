@@ -11,6 +11,7 @@ import {
   useMantineTheme,
   rem,
 } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -40,15 +41,10 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface CarouselComponentProps {
-  setPage: (page: string) => void;
-}
-
 interface CardProps {
   image: string;
   title: string;
   category: string;
-  setPage: (page: string) => void;
 }
 
 const data = [
@@ -74,10 +70,10 @@ const data = [
   },
 ];
 
-function Card({ image, title, category, setPage }: CardProps) {
+function Card({ image, title, category }: CardProps) {
   const { classes } = useStyles();
 
-  const handleExploreClick = () => {
+  const getPageLink = () => {
     let pageToNavigate = '';
 
     switch (category) {
@@ -89,12 +85,10 @@ function Card({ image, title, category, setPage }: CardProps) {
         break;
       // Add more cases as needed
       default:
-        pageToNavigate = '/home';
+        pageToNavigate = '/';
     }
 
-    setPage(pageToNavigate);
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
+    return pageToNavigate;
   };
 
   return (
@@ -113,22 +107,22 @@ function Card({ image, title, category, setPage }: CardProps) {
           {title}
         </Title>
       </div>
-      <Button variant='white' color='dark' onClick={handleExploreClick}>
-        Explore
-      </Button>
+      <Link to={getPageLink()}>
+        <Button variant='white' color='dark'>
+          Explore
+        </Button>
+      </Link>
     </Paper>
   );
 }
 
-export const CarouselComponent = ({
-  setPage,
-}: CarouselComponentProps): JSX.Element => {
+export const CarouselComponent = (): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const autoplay = useRef(Autoplay({ delay: 4000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <Card {...item} setPage={setPage} />
+      <Card {...item} />
     </Carousel.Slide>
   ));
 

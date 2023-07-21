@@ -4,17 +4,16 @@ import { FooterCentered } from './components/FooterComponent';
 
 interface AppShellProps {
   children: JSX.Element;
-  setPage: (page: string) => void;
 }
 
 export const AppShellComponent = (props: AppShellProps) => {
   const links = [
     {
-      link: '/home',
-      label: 'Home',
+      link: '/',
+      label: 'About',
     },
     {
-      link: '/accommodation',
+      link: '/camping',
       label: 'Accommadation',
       links: [
         {
@@ -39,19 +38,9 @@ export const AppShellComponent = (props: AppShellProps) => {
 
   return (
     <AppShell
-      header={
-        <HeaderMenu
-          Logo={'/pictures/Logo_no_bg.png'}
-          links={links}
-          setPage={props.setPage}
-        />
-      }
+      header={<HeaderMenu Logo={'/pictures/Logo_no_bg.png'} links={links} />}
       footer={
-        <FooterCentered
-          Logo={'/pictures/Logo_no_bg.png'}
-          links={links}
-          setPage={props.setPage}
-        />
+        <FooterCentered Logo={'/pictures/Logo_no_bg.png'} links={links} />
       }
     >
       {props.children}

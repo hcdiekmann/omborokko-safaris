@@ -18,6 +18,7 @@ import {
 } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
 import { PictureCarousel } from '../../components/PictureCarousel';
+import { Link } from 'react-router-dom';
 
 const pictures = [
   '/pictures/webp/B&BFamilyRoomBeds.webp',
@@ -28,11 +29,7 @@ const pictures = [
   '/pictures/webp/B&BBar.webp',
 ];
 
-interface BBPageProps {
-  setPage: (page: string) => void;
-}
-
-export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
+export const BBPage = (): JSX.Element => {
   return (
     <Container mt={30}>
       <Card pt={0}>
@@ -50,9 +47,10 @@ export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
               <Balancer>
                 Relish in comfort while still being a heartbeat away from the
                 wilderness, witnessing the serene Namibian sunsets right from
-                your doorstep. An outdoor undercover patio can be used to relax
-                and read a book while enjoying the astonishing view of the
-                Omborokko mountains.
+                your doorstep. The swimming pool provides the necessary
+                refreshment to cool off during Namibia's hot summer days. An
+                outdoor undercover patio can be used to relax and read a book
+                while enjoying the astonishing view of the Omborokko mountains.
               </Balancer>
             </Text>
           </div>
@@ -109,22 +107,12 @@ export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
         </SimpleGrid>
         <PictureCarousel pictures={pictures}></PictureCarousel>
         <Group mt={10} position='center'>
-          <Button
-            onClick={() => {
-              setPage('/rates');
-              window.scrollTo(0, 0);
-            }}
-          >
-            View Rates
-          </Button>
-          <Button
-            onClick={() => {
-              setPage('/contact');
-              window.scrollTo(0, 0);
-            }}
-          >
-            Book Now
-          </Button>
+          <Link to='/rates'>
+            <Button>View Rates</Button>
+          </Link>
+          <Link to='/contact'>
+            <Button>Book Now</Button>
+          </Link>
         </Group>
       </Card>
     </Container>

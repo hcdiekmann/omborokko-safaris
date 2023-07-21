@@ -19,6 +19,7 @@ import {
   IconToiletPaper,
 } from '@tabler/icons-react';
 import { PictureCarousel } from '../../components/PictureCarousel';
+import { Link } from 'react-router-dom';
 
 const pictures = [
   '/pictures/webp/CampFireplaceRiverView.webp',
@@ -28,11 +29,7 @@ const pictures = [
   '/pictures/webp/CampFromRiver.webp',
 ];
 
-interface CampingPageProps {
-  setPage: (page: string) => void;
-}
-
-export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
+export const CampingPage = (): JSX.Element => {
   return (
     <Container mt={30}>
       <Card pt={0}>
@@ -113,22 +110,12 @@ export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
           </List>
         </Alert>
         <Group mt={10} position='center'>
-          <Button
-            onClick={() => {
-              setPage('/rates');
-              window.scrollTo(0, 0);
-            }}
-          >
-            View Rates
-          </Button>
-          <Button
-            onClick={() => {
-              setPage('/contact');
-              window.scrollTo(0, 0);
-            }}
-          >
-            Book Now
-          </Button>
+          <Link to='/rates'>
+            <Button>View Rates</Button>
+          </Link>
+          <Link to='/contact'>
+            <Button>Book Now</Button>
+          </Link>
         </Group>
       </Card>
     </Container>
