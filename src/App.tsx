@@ -4,6 +4,7 @@ import { queryClient } from './api/react-query/QueryClient';
 
 import { MantineProvider } from '@mantine/core';
 import {
+  FullAboutPage,
   FullBBPage,
   FullCampingPage,
   FullContactPage,
@@ -76,6 +77,7 @@ export const App = (): JSX.Element => {
             <ScrollToTop />
             <Routes>
               <Route path='/' element={<FullHomePage />} />
+              <Route path='/about' element={<FullAboutPage />} />
               <Route path='/rates' element={<FullRatesPage />} />
               <Route path='/contact' element={<FullContactPage />} />
               <Route path='/camping' element={<FullCampingPage />} />

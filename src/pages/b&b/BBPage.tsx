@@ -47,9 +47,10 @@ export const BBPage = (): JSX.Element => {
               <Balancer>
                 Relish in comfort while still being a heartbeat away from the
                 wilderness, witnessing the serene Namibian sunsets right from
-                your doorstep. An outdoor undercover patio can be used to relax
-                and read a book while enjoying the astonishing view of the
-                Omborokko mountains.
+                your doorstep. The swimming pool provides the necessary
+                refreshment to cool off during Namibia's hot summer days. An
+                outdoor undercover patio can be used to relax and read a book
+                while enjoying the astonishing view of the Omborokko mountains.
               </Balancer>
             </Text>
           </div>

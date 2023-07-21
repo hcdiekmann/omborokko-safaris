@@ -75,7 +75,9 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
       <div className={classes.inner}>
         <Flex align='center'>
           <img src={Logo} alt={'Loading'} height={45} width={35} />
-          <Title order={3}>Omborokko Safaris</Title>
+          <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Title order={3}>Omborokko Safaris</Title>
+          </Link>
         </Flex>
 
         <Group className={classes.links}>{items}</Group>

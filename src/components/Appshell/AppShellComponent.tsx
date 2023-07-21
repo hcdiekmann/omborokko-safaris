@@ -10,7 +10,7 @@ export const AppShellComponent = (props: AppShellProps) => {
   const links = [
     {
       link: '/',
-      label: 'Home',
+      label: 'About',
     },
     {
       link: '/camping',

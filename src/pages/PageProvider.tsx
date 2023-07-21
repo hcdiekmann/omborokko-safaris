@@ -4,11 +4,20 @@ import { RatesPage } from './rates/RatesPage';
 import { ContactPage } from './contact/ContactPage';
 import { CampingPage } from './camping/CampingPage';
 import { BBPage } from './b&b/BBPage';
+import { AboutPage } from './about/AboutPage';
 
 export const FullHomePage = (): JSX.Element => {
   return (
     <AppShellComponent>
       <HomePage />
+    </AppShellComponent>
+  );
+};
+
+export const FullAboutPage = (): JSX.Element => {
+  return (
+    <AppShellComponent>
+      <AboutPage />
     </AppShellComponent>
   );
 };

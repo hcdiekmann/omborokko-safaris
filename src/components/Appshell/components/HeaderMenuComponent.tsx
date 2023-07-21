@@ -138,7 +138,9 @@ export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
         <div className={classes.inner}>
           <Flex align='center'>
             <img src={Logo} alt={'Loading'} height={75} width={57} />
-            <Title order={1}>Omborokko Safaris</Title>
+            <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Title order={1}>Omborokko Safaris</Title>
+            </Link>
           </Flex>
           <Group spacing={5} className={classes.links}>
             {items}
