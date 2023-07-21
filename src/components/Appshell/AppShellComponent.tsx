@@ -13,7 +13,7 @@ export const AppShellComponent = (props: AppShellProps) => {
       label: 'Home',
     },
     {
-      link: '/accommodation',
+      link: '/camping',
       label: 'Accommadation',
       links: [
         {
