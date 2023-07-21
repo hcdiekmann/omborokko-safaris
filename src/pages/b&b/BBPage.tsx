@@ -28,11 +28,7 @@ const pictures = [
   '/pictures/webp/B&BBar.webp',
 ];
 
-interface BBPageProps {
-  setPage: (page: string) => void;
-}
-
-export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
+export const BBPage = (): JSX.Element => {
   return (
     <Container mt={30}>
       <Card pt={0}>
@@ -111,7 +107,6 @@ export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
         <Group mt={10} position='center'>
           <Button
             onClick={() => {
-              setPage('/rates');
               window.scrollTo(0, 0);
             }}
           >
@@ -119,7 +114,6 @@ export const BBPage = ({ setPage }: BBPageProps): JSX.Element => {
           </Button>
           <Button
             onClick={() => {
-              setPage('/contact');
               window.scrollTo(0, 0);
             }}
           >

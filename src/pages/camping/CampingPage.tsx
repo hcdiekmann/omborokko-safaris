@@ -28,11 +28,7 @@ const pictures = [
   '/pictures/webp/CampFromRiver.webp',
 ];
 
-interface CampingPageProps {
-  setPage: (page: string) => void;
-}
-
-export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
+export const CampingPage = (): JSX.Element => {
   return (
     <Container mt={30}>
       <Card pt={0}>
@@ -115,7 +111,6 @@ export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
         <Group mt={10} position='center'>
           <Button
             onClick={() => {
-              setPage('/rates');
               window.scrollTo(0, 0);
             }}
           >
@@ -123,7 +118,6 @@ export const CampingPage = ({ setPage }: CampingPageProps): JSX.Element => {
           </Button>
           <Button
             onClick={() => {
-              setPage('/contact');
               window.scrollTo(0, 0);
             }}
           >
