@@ -9,7 +9,6 @@ import {
   Radio,
   Textarea,
   NumberInput,
-  Flex,
   Select,
 } from '@mantine/core';
 import { useState } from 'react';
@@ -76,6 +75,7 @@ export const ContactForm = (): JSX.Element => {
 
       if (response.ok) {
         form.reset();
+        setDateRange([null, null]);
         notifications.show({
           title: 'Email sent',
           message: 'We will get back to you as soon as possible',
@@ -94,7 +94,6 @@ export const ContactForm = (): JSX.Element => {
       // Set loading back to false when the request ends,
       // whether it was successful or not
       setIsLoading(false);
-      setDateRange([null, null]);
     }
   };
 
@@ -142,26 +141,13 @@ export const ContactForm = (): JSX.Element => {
           <Radio mt={2} value='Booking' label='Booking request' />
         </Radio.Group>
         {form.values.contactOption === 'Booking' && (
-          <Flex
-            gap='xs'
-            justify='flex-start'
-            align='flex-start'
-            direction='row'
-            wrap='wrap'
-          >
+          <div>
             <Select
               label='Accommodation'
               placeholder='Select accommodation type'
               data={['Camping', 'Bed & Breakfast']}
               {...form.getInputProps('accommodationType')}
             />
-            <DatePicker
-              type='range'
-              minDate={new Date()}
-              value={dateRange}
-              onChange={setDateRange}
-            />
-
             <NumberInput
               label='Number of Adults'
               min={1}
@@ -175,7 +161,14 @@ export const ContactForm = (): JSX.Element => {
                 {...form.getInputProps('children')}
               />
             )}
-          </Flex>
+            <DatePicker
+              mt={5}
+              type='range'
+              minDate={new Date()}
+              value={dateRange}
+              onChange={setDateRange}
+            />
+          </div>
         )}
 
         <Group position='right' mt='md'>
