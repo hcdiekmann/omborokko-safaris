@@ -2,8 +2,8 @@ import { AppShellComponent } from '../components/Appshell/AppShellComponent';
 import { HomePage } from './home/HomePage';
 import { RatesPage } from './rates/RatesPage';
 import { ContactPage } from './contact/ContactPage';
-import { CampingPage } from './camping/CampingPage';
-import { BBPage } from './b&b/BBPage';
+import { CampingPage } from './accomodation/camping/CampingPage';
+import { BBPage } from './accomodation/b&b/BBPage';
 import { AboutPage } from './about/AboutPage';
 
 export const FullHomePage = (): JSX.Element => {

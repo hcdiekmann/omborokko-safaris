@@ -13,7 +13,7 @@ const bedElements = [
 
 export const RatesPage = (): JSX.Element => {
   return (
-    <Container mt={100}>
+    <Container mt={75}>
       <Card shadow='md' radius='md'>
         <Title order={2} align='center'>
           Our Rates

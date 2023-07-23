@@ -18,7 +18,7 @@ import {
   IconCampfire,
   IconToiletPaper,
 } from '@tabler/icons-react';
-import { PictureCarousel } from '../../components/PictureCarousel';
+import { PictureCarousel } from '../components/PictureCarousel';
 import { Link } from 'react-router-dom';
 
 const pictures = [
@@ -32,7 +32,7 @@ const pictures = [
 export const CampingPage = (): JSX.Element => {
   return (
     <Container mt={30}>
-      <Card pt={0}>
+      <Card pt={5}>
         <Title order={2} size={40}>
           Remote Camping
         </Title>

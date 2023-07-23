@@ -32,7 +32,10 @@ export default async function (
   try {
     await resend.emails.send({
       from: 'admin@omborokkosafaris.com',
-      to: ['Omborokko Safaris <omborokkosafaris@gmail.com>'],
+      to: [
+        'Omborokko Safaris <omborokkosafaris@gmail.com>',
+        'Eunice <eunicedutoit@gmail.com>',
+      ],
       reply_to: email,
       subject: contactOption,
       html: `<head>
