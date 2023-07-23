@@ -9,7 +9,7 @@ interface AppShellProps {
 export const AppShellComponent = (props: AppShellProps) => {
   const links = [
     {
-      link: '/',
+      link: '/about',
       label: 'About',
     },
     {
