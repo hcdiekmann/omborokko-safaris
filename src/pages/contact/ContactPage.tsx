@@ -3,7 +3,7 @@ import { ContactForm } from './components/ContactForm';
 
 export const ContactPage = (): JSX.Element => {
   return (
-    <Container mt={100}>
+    <Container mt={75}>
       <ContactForm />
     </Container>
   );
