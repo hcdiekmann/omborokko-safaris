@@ -33,8 +33,8 @@ const useStyles = createStyles((theme) => ({
 
   links: {
     [theme.fn.smallerThan('sm')]: {
-      marginTop: theme.spacing.lg,
-      marginBottom: theme.spacing.lg,
+      marginTop: theme.spacing.sm,
+      marginBottom: theme.spacing.md,
     },
     color: theme.colors.gray[6],
     fontSize: theme.fontSizes.sm,
