@@ -143,18 +143,21 @@ export const ContactForm = (): JSX.Element => {
         {form.values.contactOption === 'Booking' && (
           <div>
             <Select
+              maw={270}
               label='Accommodation'
               placeholder='Select accommodation type'
               data={['Camping', 'Bed & Breakfast']}
               {...form.getInputProps('accommodationType')}
             />
             <NumberInput
+              maw={270}
               label='Number of Adults'
               min={1}
               {...form.getInputProps('adults')}
             />
             {form.values.accommodationType === 'Camping' && (
               <NumberInput
+                maw={270}
                 label='Number of Children'
                 description='Aged 16 or younger'
                 min={0}
