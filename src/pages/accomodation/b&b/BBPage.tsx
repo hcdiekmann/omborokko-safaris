@@ -17,7 +17,7 @@ import {
   IconWifi,
 } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
-import { PictureCarousel } from '../../components/PictureCarousel';
+import { PictureCarousel } from '../components/PictureCarousel';
 import { Link } from 'react-router-dom';
 
 const pictures = [

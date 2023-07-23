@@ -1,6 +1,6 @@
 import { AppShell } from '@mantine/core';
-import { HeaderMenu } from './components/HeaderMenuComponent';
-import { FooterCentered } from './components/FooterComponent';
+import { HeaderMenu } from './HeaderMenuComponent';
+import { FooterCentered } from './FooterComponent';
 
 interface AppShellProps {
   children: JSX.Element;
