@@ -31,8 +31,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   activeLink: {
-    textDecoration: 'underline',
-    textDecorationColor: 'black',
+    backgroundColor: theme.colors.gray[3],
   },
 
   links: {
@@ -58,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      backgroundColor: theme.colors.gray[3],
     },
   },
 

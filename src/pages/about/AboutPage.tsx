@@ -39,7 +39,7 @@ export const AboutPage = (): JSX.Element => {
             </Text>
             <div
               style={{
-                marginTop: '10px',
+                marginTop: '12px',
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -49,19 +49,19 @@ export const AboutPage = (): JSX.Element => {
                 style={{ marginRight: '15px', color: '#888' }}
               />
               <Text size={18} style={{ fontStyle: 'italic' }}>
-                "..Great facilities, spotlessly clean and lovely owners."
+                "Great facilities, spotlessly clean and lovely owners."
               </Text>
             </div>
             <Text
               size={14}
-              style={{ textAlign: 'right', marginTop: '10px', color: '#aaa' }}
+              style={{ textAlign: 'right', marginTop: '8px', color: '#aaa' }}
             >
               - Google Review
             </Text>
           </div>
           <iframe
             title='Google Maps Omborokko Safaris'
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.3187037577013!2d16.7204197!3d-20.8994937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1bf4d0a1bbde997f%3A0xfc41348745a0467e!2sOmborokko%20Safaris!5e0!3m2!1sen!2snz!4v1690864712755!5m2!1sen!2snz'
+            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.3187037577013!2d16.7204197!3d-20.8994937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1bf4d0a1bbde997f%3A0xfc41348745a0467e!2sOmborokko%20Safaris!5e0!3m2!1sen!2snz!4v1690864712755!5m2!1sen!2s'
             width={'100%'}
             height={'350'}
             loading='lazy'
