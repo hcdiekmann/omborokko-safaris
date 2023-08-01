@@ -14,7 +14,7 @@ import {
   Flex,
   Title,
 } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -28,6 +28,10 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+
+  activeLink: {
+    backgroundColor: theme.colors.gray[3],
   },
 
   links: {
@@ -53,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      backgroundColor: theme.colors.gray[3],
     },
   },
 
@@ -74,11 +78,22 @@ interface HeaderProps {
 export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
   const [opened] = useDisclosure(false);
   const [drawerOpened, setDrawerOpened] = useState(false);
+  const location = useLocation();
   const { classes } = useStyles();
+
+  const isActiveLink = (path: string) => {
+    return location.pathname === path;
+  };
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Link key={item.link} to={item.link} className={classes.link}>
+      <Link
+        key={item.link}
+        to={item.link}
+        className={`${classes.link} ${
+          isActiveLink(item.link) ? classes.activeLink : ''
+        }`}
+      >
         {item.label}
       </Link>
     ));
@@ -105,7 +120,13 @@ export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
     }
 
     return (
-      <Link key={link.label} to={link.link} className={classes.link}>
+      <Link
+        key={link.label}
+        to={link.link}
+        className={`${classes.link} ${
+          isActiveLink(link.link) ? classes.activeLink : ''
+        }`}
+      >
         {link.label}
       </Link>
     );
@@ -117,7 +138,13 @@ export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
         return (
           <Flex key={link.label} direction='column' columnGap={20}>
             {link.links.map((item) => (
-              <Link key={item.link} to={item.link} className={classes.link}>
+              <Link
+                key={item.link}
+                to={item.link}
+                className={`${classes.link} ${
+                  isActiveLink(item.link) ? classes.activeLink : ''
+                }`}
+              >
                 {item.label}
               </Link>
             ))}
@@ -125,7 +152,13 @@ export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
         );
       }
       return (
-        <Link key={link.label} to={link.link} className={classes.link}>
+        <Link
+          key={link.label}
+          to={link.link}
+          className={`${classes.link} ${
+            isActiveLink(link.link) ? classes.activeLink : ''
+          }`}
+        >
           {link.label}
         </Link>
       );

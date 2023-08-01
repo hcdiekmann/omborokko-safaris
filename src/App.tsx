@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './api/react-query/QueryClient';
+import { Analytics } from '@vercel/analytics/react';
 
 import { MantineProvider } from '@mantine/core';
 import {
@@ -71,6 +72,7 @@ export const App = (): JSX.Element => {
         withGlobalStyles
         withNormalizeCSS
       >
+        <Analytics />
         <Notifications />
         <QueryClientProvider client={queryClient}>
           <Router>

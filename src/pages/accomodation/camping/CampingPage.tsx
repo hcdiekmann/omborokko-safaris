@@ -9,6 +9,7 @@ import {
   Group,
   Alert,
   Button,
+  Divider,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';
 import {
@@ -36,6 +37,7 @@ export const CampingPage = (): JSX.Element => {
         <Title order={2} size={40}>
           Remote Camping
         </Title>
+        <Divider mb={5} size='xs' />
         <SimpleGrid
           cols={2}
           spacing={60}

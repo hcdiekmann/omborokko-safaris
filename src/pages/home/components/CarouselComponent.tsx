@@ -49,14 +49,9 @@ interface CardProps {
 
 const data = [
   {
-    image: '/pictures/webp/B&BFamilyRoomBeds.webp',
-    title: 'Indulge in luxurious tranquility at our Farm Retreat',
+    image: '/pictures/webp/B&BOutsidePatioDrinksDarkend.webp',
+    title: 'Relax and unwind at our Farmhouse patio',
     category: 'Bed & Breakfast',
-  },
-  {
-    image: '/pictures/webp/Jackal.webp',
-    title: 'Encounter Wildlife at our Waterhole observatory',
-    category: 'Remote Camping',
   },
   {
     image: '/pictures/webp/CampFarViewDark.webp',
@@ -64,8 +59,13 @@ const data = [
     category: 'Remote Camping',
   },
   {
-    image: '/pictures/webp/B&BBar.webp',
-    title: 'Relax and unwind at our Farmhouse patio',
+    image: '/pictures/webp/Jackal.webp',
+    title: 'Encounter Wildlife at our Waterhole observatory',
+    category: 'Remote Camping',
+  },
+  {
+    image: '/pictures/webp/B&BFamilyRoomBeds.webp',
+    title: 'Indulge in luxurious tranquility at our Farm Retreat',
     category: 'Bed & Breakfast',
   },
 ];
@@ -119,7 +119,7 @@ function Card({ image, title, category }: CardProps) {
 export const CarouselComponent = (): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const autoplay = useRef(Autoplay({ delay: 4000 }));
+  const autoplay = useRef(Autoplay({ delay: 10000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />

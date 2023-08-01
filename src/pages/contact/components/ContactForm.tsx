@@ -14,6 +14,7 @@ import {
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { notifications } from '@mantine/notifications';
+import { IconCheck, IconX } from '@tabler/icons-react';
 
 export const ContactForm = (): JSX.Element => {
   const form = useForm({
@@ -80,12 +81,14 @@ export const ContactForm = (): JSX.Element => {
           title: 'Email sent',
           message: 'We will get back to you as soon as possible',
           color: 'green',
+          icon: <IconCheck />,
         });
       } else {
         notifications.show({
           title: 'Sending failed',
           message: 'Something went wrong, please try again later',
           color: 'red',
+          icon: <IconX />,
         });
       }
     } catch (error) {
