@@ -8,6 +8,7 @@ import {
   ThemeIcon,
   Button,
   Group,
+  Divider,
 } from '@mantine/core';
 import {
   IconSwimming,
@@ -36,6 +37,7 @@ export const BBPage = (): JSX.Element => {
         <Title order={2} size={40}>
           Bed & Breakfast
         </Title>
+        <Divider mb={5} size='xs' />
         <SimpleGrid
           cols={2}
           spacing={60}

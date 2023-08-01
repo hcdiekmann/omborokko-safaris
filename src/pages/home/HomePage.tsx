@@ -10,7 +10,7 @@ export const HomePage = (): JSX.Element => {
           <Title size={70} order={1} style={{ color: 'whitesmoke' }}>
             Welcome to Omborokko Safaris
           </Title>
-          <Text size={18} weight={350} mt={10} mb={10} color='white'>
+          <Text size={20} weight={350} mt={10} mb={10} color='white'>
             A captivating farm retreat nestled amidst the natural splendor of
             Namibia. Sprawling over a vast 6000-hectare plain, our cattle farm
             is a thriving sanctuary for Namibia's diverse wildlife. Whether you

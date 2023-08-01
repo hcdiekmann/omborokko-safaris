@@ -45,7 +45,7 @@ export const PictureCarousel = ({
 
   return (
     <Carousel
-      mt={10}
+      mt={18}
       maw='auto'
       mah='auto'
       withIndicators
