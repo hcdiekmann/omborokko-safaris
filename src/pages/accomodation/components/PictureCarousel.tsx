@@ -1,5 +1,5 @@
 import { Carousel } from '@mantine/carousel';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Image, createStyles, getStylesRef, rem } from '@mantine/core';
 
@@ -37,24 +37,36 @@ export const PictureCarousel = ({
 }: PictureCarouselProps): JSX.Element => {
   const { classes } = useStyles();
   const autoplay = useRef(Autoplay({ delay: 5000 }));
+  const [allLoaded, setAllLoaded] = useState(false);
+  let loadCount = 0;
+
+  const handleImageLoad = () => {
+    loadCount += 1;
+    if (loadCount === pictures.length) {
+      setAllLoaded(true);
+    }
+  };
+
   const slides = pictures.map((url) => (
     <Carousel.Slide key={url}>
-      <Image src={url} />
+      <Image src={url} onLoad={handleImageLoad} />
     </Carousel.Slide>
   ));
 
   return (
-    <Carousel
-      mt={18}
-      maw='auto'
-      mah='auto'
-      withIndicators
-      classNames={classes}
-      plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={autoplay.current.reset}
-    >
-      {slides}
-    </Carousel>
+    <div style={{ opacity: allLoaded ? 1 : 0, transition: 'opacity 1s ease' }}>
+      <Carousel
+        mt={18}
+        maw='auto'
+        mah='auto'
+        withIndicators
+        classNames={classes}
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={autoplay.current.reset}
+      >
+        {slides}
+      </Carousel>
+    </div>
   );
 };
