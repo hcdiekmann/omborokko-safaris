@@ -1,4 +1,12 @@
-import { Title, Container, Card, Space, Text, Badge } from '@mantine/core';
+import {
+  Title,
+  Container,
+  Card,
+  Space,
+  Text,
+  Badge,
+  Divider,
+} from '@mantine/core';
 import { PriceTable } from './components/PriceTable';
 
 const campingElements = [
@@ -19,9 +27,11 @@ export const RatesPage = (): JSX.Element => {
           Our Rates
         </Title>
         <Title order={3}>Camping</Title>
+        <Divider mb={5} size='xs' />
         <PriceTable elements={campingElements} />
-        <Space h='lg' />
+        <Space h='xl' />
         <Title order={3}>Bed & Breakfast</Title>
+        <Divider mb={5} size='xs' />
         <PriceTable elements={bedElements} />
         <Card>
           <Badge color='yellow' variant='light'>
