@@ -16,7 +16,7 @@ const campingElements = [
 ];
 
 const bedElements = [
-  { id: 1, description: 'Adult per person per night', price: 'N$ 850' },
+  { id: 1, description: 'Adult per person per night', price: 'N$ 950' },
 ];
 
 export const RatesPage = (): JSX.Element => {
@@ -31,6 +31,9 @@ export const RatesPage = (): JSX.Element => {
         <PriceTable elements={campingElements} />
         <Space h='xl' />
         <Title order={3}>Bed & Breakfast</Title>
+        <Text fz='sm' c='dimmed'>
+          Minimum two nights, no children
+        </Text>
         <Divider mb={5} size='xs' />
         <PriceTable elements={bedElements} />
         <Card>

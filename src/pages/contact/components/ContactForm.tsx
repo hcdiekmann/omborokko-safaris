@@ -4,17 +4,16 @@ import {
   Group,
   TextInput,
   Box,
-  Card,
-  Title,
   Radio,
   Textarea,
   NumberInput,
   Select,
+  Checkbox,
 } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { notifications } from '@mantine/notifications';
-import { IconCheck, IconX } from '@tabler/icons-react';
+import { IconCalendar, IconCheck, IconX } from '@tabler/icons-react';
 
 export const ContactForm = (): JSX.Element => {
   const form = useForm({
@@ -26,6 +25,8 @@ export const ContactForm = (): JSX.Element => {
       accommodationType: 'Camping',
       adults: 1,
       children: 0,
+      termsOfBooking: false,
+      termsOfPayment: false,
     },
 
     validate: {
@@ -45,14 +46,48 @@ export const ContactForm = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values: typeof form.values) => {
+    // check date selected
     if (
       values.contactOption === 'Booking' &&
       (!dateRange[0] || !dateRange[1])
     ) {
       notifications.show({
-        title: 'Invalid Date',
-        message: 'Select a valid date range',
+        title: 'No date selected',
+        message: 'Select a valid date range for your booking.',
         color: 'red',
+        icon: <IconCalendar size={20} />,
+        autoClose: 10000,
+      });
+      return;
+    }
+    // check minimum 2 nights for bed and breakfast
+    if (
+      values.contactOption === 'Booking' &&
+      values.accommodationType === 'Bed & Breakfast' &&
+      dateRange[0] &&
+      dateRange[1] &&
+      dateRange[1].getTime() - dateRange[0].getTime() < 172800000
+    ) {
+      notifications.show({
+        title: 'Invalid date selected',
+        message: 'A minimum stay of 2 nights for B&B required.',
+        color: 'red',
+        icon: <IconCalendar size={20} />,
+        autoClose: 10000,
+      });
+      return;
+    }
+    // check terms of booking and payment
+    if (
+      values.contactOption === 'Booking' &&
+      (values.termsOfBooking === false || values.termsOfPayment === false)
+    ) {
+      notifications.show({
+        title: 'Terms and conditions',
+        message: 'Please accept the terms and conditions.',
+        color: 'red',
+        icon: <IconX size={20} />,
+        autoClose: 10000,
       });
       return;
     }
@@ -101,88 +136,94 @@ export const ContactForm = (): JSX.Element => {
   };
 
   return (
-    <Card shadow='md' radius='md'>
-      <Title order={2} align='center'>
-        Contact us
-      </Title>
-      <Box
-        component='form'
-        maw={400}
-        mx='auto'
-        onSubmit={form.onSubmit(() => {
-          handleSubmit(form.values);
-        })}
+    <Box
+      component='form'
+      maw={400}
+      mx='auto'
+      onSubmit={form.onSubmit(() => {
+        console.log(form);
+        handleSubmit(form.values);
+      })}
+    >
+      <TextInput
+        label='Name'
+        placeholder='Your name'
+        {...form.getInputProps('name')}
+      />
+      <TextInput
+        label='Email'
+        placeholder='Your email'
+        mt='sm'
+        {...form.getInputProps('email')}
+      />
+      <Textarea
+        label='Message'
+        placeholder='Your message'
+        mt='xs'
+        {...form.getInputProps('message')}
+      />
+      <Radio.Group
+        mt='xs'
+        mb='sm'
+        size='sm'
+        {...form.getInputProps('contactOption')} // Get input props for radio group
+        name='contactOption'
+        label='Intent'
+        description='Choose the purpose for contacting us'
       >
-        <TextInput
-          label='Name'
-          placeholder='Your name'
-          {...form.getInputProps('name')}
-        />
-        <TextInput
-          label='Email'
-          placeholder='Your email'
-          mt='sm'
-          {...form.getInputProps('email')}
-        />
-        <Textarea
-          label='Message'
-          placeholder='Your message'
-          mt='xs'
-          {...form.getInputProps('message')}
-        />
-        <Radio.Group
-          mt='xs'
-          mb='sm'
-          size='sm'
-          {...form.getInputProps('contactOption')} // Get input props for radio group
-          name='contactOption'
-          label='Intent'
-          description='Choose the purpose for contacting us'
-        >
-          <Radio mt={2} value='Enquiry' label='Enquiry' />
-          <Radio mt={2} value='Feedback' label='Feedback' />
-          <Radio mt={2} value='Booking' label='Booking request' />
-        </Radio.Group>
-        {form.values.contactOption === 'Booking' && (
-          <div>
-            <Select
-              maw={270}
-              label='Accommodation'
-              placeholder='Select accommodation type'
-              data={['Camping', 'Bed & Breakfast']}
-              {...form.getInputProps('accommodationType')}
-            />
+        <Radio mt={2} value='Enquiry' label='Enquiry' />
+        <Radio mt={2} value='Feedback' label='Feedback' />
+        <Radio mt={2} value='Booking' label='Booking request' />
+      </Radio.Group>
+      {form.values.contactOption === 'Booking' && (
+        <div>
+          <Select
+            maw={270}
+            label='Accommodation'
+            placeholder='Select accommodation type'
+            data={['Camping', 'Bed & Breakfast']}
+            {...form.getInputProps('accommodationType')}
+          />
+          <NumberInput
+            maw={270}
+            label='Number of Adults'
+            min={1}
+            {...form.getInputProps('adults')}
+          />
+          {form.values.accommodationType === 'Camping' && (
             <NumberInput
               maw={270}
-              label='Number of Adults'
-              min={1}
-              {...form.getInputProps('adults')}
+              label='Number of Children'
+              description='Aged 16 or younger'
+              min={0}
+              {...form.getInputProps('children')}
             />
-            {form.values.accommodationType === 'Camping' && (
-              <NumberInput
-                maw={270}
-                label='Number of Children'
-                description='Aged 16 or younger'
-                min={0}
-                {...form.getInputProps('children')}
-              />
-            )}
-            <DatePicker
-              mt={5}
-              type='range'
-              minDate={new Date()}
-              value={dateRange}
-              onChange={setDateRange}
-            />
-          </div>
-        )}
+          )}
+          <DatePicker
+            mt={5}
+            type='range'
+            minDate={new Date()}
+            value={dateRange}
+            onChange={setDateRange}
+          />
+          <Checkbox
+            mt='md'
+            label='I aknowledge that this is a booking request and not a confirmed booking.'
+            {...form.getInputProps('termsOfBooking', { type: 'checkbox' })}
+          />
+          <Checkbox
+            mt='sm'
+            label='I understand that payments are made upfront upon arrival in cash only.'
+            {...form.getInputProps('termsOfPayment', { type: 'checkbox' })}
+          />
+        </div>
+      )}
 
-        <Group position='right' mt='md'>
-          <Button loading={isLoading} type='submit'>
-            Send
-          </Button>
-        </Group>
-      </Box>
-    </Card>
+      <Group position='right' mt='md'>
+        <Button loading={isLoading} type='submit'>
+          Send
+        </Button>
+      </Group>
+    </Box>
   );
 };

@@ -7,14 +7,15 @@ import {
   Paper,
   Text,
   Title,
-  Button,
   useMantineTheme,
   rem,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   card: {
+    position: 'relative',
     height: rem(400),
     display: 'flex',
     flexDirection: 'column',
@@ -22,6 +23,43 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'flex-start',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    borderRadius: theme.radius.md,
+    overflow: 'hidden', // Add this line to clip the inner content
+  },
+  imageContainer: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    zIndex: 1,
+  },
+  overlay: {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    zIndex: 2,
+  },
+  content: {
+    position: 'relative',
+    zIndex: 3,
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100%',
+    zIndex: 3,
+  },
+
+  button: {
+    alignSelf: 'flex-start', // Change to 'flex-end' to align to the right
   },
 
   title: {
@@ -49,12 +87,12 @@ interface CardProps {
 
 const data = [
   {
-    image: '/pictures/webp/B&BOutsidePatioDrinksDarkend.webp',
-    title: 'Relax and unwind at our Farmhouse patio',
+    image: '/pictures/webp/B&BOutsidePatioDrinks.webp',
+    title: 'Relax and unwind at our Farmhouse Patio',
     category: 'Bed & Breakfast',
   },
   {
-    image: '/pictures/webp/CampFarViewDark.webp',
+    image: '/pictures/webp/CampFarView.webp',
     title: 'Adventurous Camping amidst majestic Leadwood trees',
     category: 'Remote Camping',
   },
@@ -92,27 +130,30 @@ function Card({ image, title, category }: CardProps) {
   };
 
   return (
-    <Paper
-      shadow='md'
-      p='xl'
-      radius='md'
-      sx={{ backgroundImage: `url(${image})` }}
-      className={classes.card}
-    >
-      <div>
-        <Text className={classes.category} size='xs'>
-          {category}
-        </Text>
-        <Title order={3} className={classes.title}>
-          {title}
-        </Title>
-      </div>
-      <Link to={getPageLink()}>
-        <Button variant='white' color='dark'>
-          Explore
-        </Button>
-      </Link>
-    </Paper>
+    <Link to={getPageLink()} style={{ textDecoration: 'none' }}>
+      <Paper shadow='md' p='xl' radius='md' className={classes.card}>
+        <div
+          className={classes.imageContainer}
+          style={{ backgroundImage: `url(${image})` }}
+        >
+          <div className={classes.overlay}></div>
+        </div>
+        <div className={classes.buttonContainer}>
+          <div className={classes.content}>
+            <Text className={classes.category} size='xs'>
+              {category}
+            </Text>
+            <Title order={3} className={classes.title}>
+              {title}
+            </Title>
+          </div>
+
+          {/* <Button variant='white' color='dark' className={classes.button}>
+            Erkunden
+          </Button> */}
+        </div>
+      </Paper>
+    </Link>
   );
 }
 
@@ -134,6 +175,8 @@ export const CarouselComponent = (): JSX.Element => {
       align='start'
       loop
       withIndicators
+      nextControlIcon={<IconArrowRight size={24} />}
+      previousControlIcon={<IconArrowLeft size={24} />}
       slidesToScroll={mobile ? 1 : 2}
       plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}

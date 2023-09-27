@@ -94,11 +94,11 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
               radius='xl'
               className={classes.FacebookIcon}
             >
-              <IconBrandFacebook size='1.05rem' stroke={1.5} />
+              <IconBrandFacebook size='1.3rem' stroke={1.5} />
             </ActionIcon>
           </a>
           <a
-            href='https://api.whatsapp.com/send?phone=264817683446'
+            href='https://api.whatsapp.com/send?phone=264817068051'
             target='_blank'
             rel='noreferrer'
           >
@@ -108,7 +108,7 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
               radius='xl'
               className={classes.WhatsappIcon}
             >
-              <IconBrandWhatsapp size='1.05rem' stroke={1.5} />
+              <IconBrandWhatsapp size='1.3rem' stroke={1.5} />
             </ActionIcon>
           </a>
           <a
@@ -122,7 +122,7 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
               radius='xl'
               className={classes.InstaIcon}
             >
-              <IconBrandInstagram size='1.05rem' stroke={1.5} />
+              <IconBrandInstagram size='1.3rem' stroke={1.5} />
             </ActionIcon>
           </a>
         </Group>

@@ -54,8 +54,20 @@ export const App = (): JSX.Element => {
               '#E4E3E3',
               '#E4E3E3',
             ],
+            KalahariSand: [
+              '#faf6eb',
+              '#ede9df',
+              '#d7d1c3',
+              '#c1b7a3',
+              '#aea189',
+              '#a29477',
+              '#9d8d6c',
+              '#89795a',
+              '#7a6c4e',
+              '#6a5d3e',
+            ],
           },
-          primaryColor: 'yellow',
+          primaryColor: 'KalahariSand',
           // white: '#E4E3E3',
           headings: {
             // properties for all headings
