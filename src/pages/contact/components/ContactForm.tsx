@@ -4,8 +4,6 @@ import {
   Group,
   TextInput,
   Box,
-  Card,
-  Title,
   Radio,
   Textarea,
   NumberInput,
@@ -125,98 +123,93 @@ export const ContactForm = (): JSX.Element => {
   };
 
   return (
-    <Card shadow='md' radius='md'>
-      <Title order={2} align='center'>
-        Contact us
-      </Title>
-      <Box
-        component='form'
-        maw={400}
-        mx='auto'
-        onSubmit={form.onSubmit(() => {
-          handleSubmit(form.values);
-        })}
+    <Box
+      component='form'
+      maw={400}
+      mx='auto'
+      onSubmit={form.onSubmit(() => {
+        handleSubmit(form.values);
+      })}
+    >
+      <TextInput
+        label='Name'
+        placeholder='Your name'
+        {...form.getInputProps('name')}
+      />
+      <TextInput
+        label='Email'
+        placeholder='Your email'
+        mt='sm'
+        {...form.getInputProps('email')}
+      />
+      <Textarea
+        label='Message'
+        placeholder='Your message'
+        mt='xs'
+        {...form.getInputProps('message')}
+      />
+      <Radio.Group
+        mt='xs'
+        mb='sm'
+        size='sm'
+        {...form.getInputProps('contactOption')} // Get input props for radio group
+        name='contactOption'
+        label='Intent'
+        description='Choose the purpose for contacting us'
       >
-        <TextInput
-          label='Name'
-          placeholder='Your name'
-          {...form.getInputProps('name')}
-        />
-        <TextInput
-          label='Email'
-          placeholder='Your email'
-          mt='sm'
-          {...form.getInputProps('email')}
-        />
-        <Textarea
-          label='Message'
-          placeholder='Your message'
-          mt='xs'
-          {...form.getInputProps('message')}
-        />
-        <Radio.Group
-          mt='xs'
-          mb='sm'
-          size='sm'
-          {...form.getInputProps('contactOption')} // Get input props for radio group
-          name='contactOption'
-          label='Intent'
-          description='Choose the purpose for contacting us'
-        >
-          <Radio mt={2} value='Enquiry' label='Enquiry' />
-          <Radio mt={2} value='Feedback' label='Feedback' />
-          <Radio mt={2} value='Booking' label='Booking request' />
-        </Radio.Group>
-        {form.values.contactOption === 'Booking' && (
-          <div>
-            <Select
-              maw={270}
-              label='Accommodation'
-              placeholder='Select accommodation type'
-              data={['Camping', 'Bed & Breakfast']}
-              {...form.getInputProps('accommodationType')}
-            />
+        <Radio mt={2} value='Enquiry' label='Enquiry' />
+        <Radio mt={2} value='Feedback' label='Feedback' />
+        <Radio mt={2} value='Booking' label='Booking request' />
+      </Radio.Group>
+      {form.values.contactOption === 'Booking' && (
+        <div>
+          <Select
+            maw={270}
+            label='Accommodation'
+            placeholder='Select accommodation type'
+            data={['Camping', 'Bed & Breakfast']}
+            {...form.getInputProps('accommodationType')}
+          />
+          <NumberInput
+            maw={270}
+            label='Number of Adults'
+            min={1}
+            {...form.getInputProps('adults')}
+          />
+          {form.values.accommodationType === 'Camping' && (
             <NumberInput
               maw={270}
-              label='Number of Adults'
-              min={1}
-              {...form.getInputProps('adults')}
+              label='Number of Children'
+              description='Aged 16 or younger'
+              min={0}
+              {...form.getInputProps('children')}
             />
-            {form.values.accommodationType === 'Camping' && (
-              <NumberInput
-                maw={270}
-                label='Number of Children'
-                description='Aged 16 or younger'
-                min={0}
-                {...form.getInputProps('children')}
-              />
-            )}
-            <DatePicker
-              mt={5}
-              type='range'
-              minDate={new Date()}
-              value={dateRange}
-              onChange={setDateRange}
-            />
-            <Checkbox
-              mt='md'
-              label='I aknowledge that this is a booking request and not a confirmed booking.'
-              {...form.getInputProps('termsOfBooking', { type: 'checkbox' })}
-            />
-            <Checkbox
-              mt='sm'
-              label='I understand that payments are made upfront upon arrival in cash only.'
-              {...form.getInputProps('termsOfPayment', { type: 'checkbox' })}
-            />
-          </div>
-        )}
+          )}
+          <DatePicker
+            mt={5}
+            type='range'
+            minDate={new Date()}
+            value={dateRange}
+            onChange={setDateRange}
+          />
+          <Checkbox
+            mt='md'
+            label='I aknowledge that this is a booking request and not a confirmed booking.'
+            {...form.getInputProps('termsOfBooking', { type: 'checkbox' })}
+          />
+          <Checkbox
+            mt='sm'
+            label='I understand that payments are made upfront upon arrival in cash only.'
+            {...form.getInputProps('termsOfPayment', { type: 'checkbox' })}
+          />
+        </div>
+      )}
 
-        <Group position='right' mt='md'>
-          <Button loading={isLoading} type='submit'>
-            Send
-          </Button>
-        </Group>
-      </Box>
-    </Card>
+      <Group position='right' mt='md'>
+        <Button loading={isLoading} type='submit'>
+          Send
+        </Button>
+      </Group>
+    </Box>
   );
 };
