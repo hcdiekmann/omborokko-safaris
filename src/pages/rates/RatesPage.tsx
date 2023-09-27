@@ -37,7 +37,7 @@ export const RatesPage = (): JSX.Element => {
         <Divider mb={5} size='xs' />
         <PriceTable elements={bedElements} />
         <Card>
-          <Badge color='yellow' variant='light'>
+          <Badge color='red' variant='light'>
             Please Note
           </Badge>
           <Text fz='sm' c='dimmed' ml={5}>
