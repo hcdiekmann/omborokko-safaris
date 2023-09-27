@@ -36,8 +36,6 @@ export const ContactForm = (): JSX.Element => {
         { min: 10 },
         'Message must be at least 10 characters long'
       ),
-      termsOfBooking: (value) => value === true || 'You must agree to proceed',
-      termsOfPayment: (value) => value === true || 'You must agree to proceed',
     },
   });
 
@@ -48,6 +46,7 @@ export const ContactForm = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values: typeof form.values) => {
+    // check date selected
     if (
       values.contactOption === 'Booking' &&
       (!dateRange[0] || !dateRange[1])
@@ -56,12 +55,12 @@ export const ContactForm = (): JSX.Element => {
         title: 'No date selected',
         message: 'Select a valid date range for your booking.',
         color: 'red',
-        icon: <IconCalendar />,
+        icon: <IconCalendar size={20} />,
         autoClose: 10000,
       });
       return;
     }
-    // minimum 2 nights for bed and breakfast
+    // check minimum 2 nights for bed and breakfast
     if (
       values.contactOption === 'Booking' &&
       values.accommodationType === 'Bed & Breakfast' &&
@@ -73,7 +72,21 @@ export const ContactForm = (): JSX.Element => {
         title: 'Invalid date selected',
         message: 'A minimum stay of 2 nights for B&B required.',
         color: 'red',
-        icon: <IconCalendar />,
+        icon: <IconCalendar size={20} />,
+        autoClose: 10000,
+      });
+      return;
+    }
+    // check terms of booking and payment
+    if (
+      values.contactOption === 'Booking' &&
+      (values.termsOfBooking === false || values.termsOfPayment === false)
+    ) {
+      notifications.show({
+        title: 'Terms and conditions',
+        message: 'Please accept the terms and conditions.',
+        color: 'red',
+        icon: <IconX size={20} />,
         autoClose: 10000,
       });
       return;
@@ -128,6 +141,7 @@ export const ContactForm = (): JSX.Element => {
       maw={400}
       mx='auto'
       onSubmit={form.onSubmit(() => {
+        console.log(form);
         handleSubmit(form.values);
       })}
     >

@@ -1,11 +1,4 @@
-import {
-  Container,
-  Title,
-  Text,
-  Card,
-  SimpleGrid,
-  Divider,
-} from '@mantine/core';
+import { Container, Title, Text, Card, SimpleGrid } from '@mantine/core';
 import { IconQuote } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
 
