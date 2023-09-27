@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { notifications } from '@mantine/notifications';
-import { IconCheck, IconX } from '@tabler/icons-react';
+import { IconCalendar, IconCheck, IconX } from '@tabler/icons-react';
 
 export const ContactForm = (): JSX.Element => {
   const form = useForm({
@@ -50,9 +50,28 @@ export const ContactForm = (): JSX.Element => {
       (!dateRange[0] || !dateRange[1])
     ) {
       notifications.show({
-        title: 'Invalid Date',
-        message: 'Select a valid date range',
+        title: 'No date selected',
+        message: 'Select a valid date range for your booking.',
         color: 'red',
+        icon: <IconCalendar />,
+        autoClose: 10000,
+      });
+      return;
+    }
+    // minimum 2 nights for bed and breakfast
+    if (
+      values.contactOption === 'Booking' &&
+      values.accommodationType === 'Bed & Breakfast' &&
+      dateRange[0] &&
+      dateRange[1] &&
+      dateRange[1].getTime() - dateRange[0].getTime() < 172800000
+    ) {
+      notifications.show({
+        title: 'Invalid date selected',
+        message: 'A minimum stay of 2 nights for B&B required.',
+        color: 'red',
+        icon: <IconCalendar />,
+        autoClose: 10000,
       });
       return;
     }

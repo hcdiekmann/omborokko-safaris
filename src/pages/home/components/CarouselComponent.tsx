@@ -44,7 +44,7 @@ const useStyles = createStyles((theme) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.45)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     zIndex: 2,
   },
   content: {
@@ -89,7 +89,7 @@ interface CardProps {
 const data = [
   {
     image: '/pictures/webp/B&BOutsidePatioDrinks.webp',
-    title: 'Relax and unwind at our Farmhouse patio',
+    title: 'Relax and unwind at our Farmhouse Patio',
     category: 'Bed & Breakfast',
   },
   {
