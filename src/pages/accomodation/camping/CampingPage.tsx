@@ -9,7 +9,6 @@ import {
   Group,
   Alert,
   Button,
-  Divider,
   createStyles,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';

@@ -8,7 +8,6 @@ import {
   ThemeIcon,
   Button,
   Group,
-  Divider,
   createStyles,
 } from '@mantine/core';
 import {

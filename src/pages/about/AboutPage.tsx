@@ -7,7 +7,6 @@ import {
   Divider,
 } from '@mantine/core';
 import { IconQuote } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
 export const AboutPage = (): JSX.Element => {
