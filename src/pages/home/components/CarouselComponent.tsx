@@ -7,7 +7,6 @@ import {
   Paper,
   Text,
   Title,
-  Button,
   useMantineTheme,
   rem,
 } from '@mantine/core';

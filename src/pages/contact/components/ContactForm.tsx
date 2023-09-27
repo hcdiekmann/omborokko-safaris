@@ -10,6 +10,7 @@ import {
   Textarea,
   NumberInput,
   Select,
+  Checkbox,
 } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
@@ -26,6 +27,8 @@ export const ContactForm = (): JSX.Element => {
       accommodationType: 'Camping',
       adults: 1,
       children: 0,
+      termsOfBooking: false,
+      termsOfPayment: false,
     },
 
     validate: {
@@ -35,6 +38,8 @@ export const ContactForm = (): JSX.Element => {
         { min: 10 },
         'Message must be at least 10 characters long'
       ),
+      termsOfBooking: (value) => value === true || 'You must agree to proceed',
+      termsOfPayment: (value) => value === true || 'You must agree to proceed',
     },
   });
 
@@ -192,6 +197,16 @@ export const ContactForm = (): JSX.Element => {
               minDate={new Date()}
               value={dateRange}
               onChange={setDateRange}
+            />
+            <Checkbox
+              mt='md'
+              label='I aknowledge that this is a booking request and not a confirmed booking.'
+              {...form.getInputProps('termsOfBooking', { type: 'checkbox' })}
+            />
+            <Checkbox
+              mt='sm'
+              label='I understand that payments are made upfront upon arrival in cash only.'
+              {...form.getInputProps('termsOfPayment', { type: 'checkbox' })}
             />
           </div>
         )}
