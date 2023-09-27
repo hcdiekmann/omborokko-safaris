@@ -40,7 +40,7 @@ export const CampingPage = (): JSX.Element => {
   const { classes } = useStyles();
   return (
     <Container mt={20}>
-      <Card p={15} pt={5}>
+      <Card p={15} pt={5} radius='md'>
         <Title order={2} size={40}>
           Remote Camping
         </Title>

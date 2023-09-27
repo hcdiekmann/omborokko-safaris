@@ -5,7 +5,7 @@ import Balancer from 'react-wrap-balancer';
 export const AboutPage = (): JSX.Element => {
   return (
     <Container mt={20}>
-      <Card p={15} pt={5}>
+      <Card p={15} pt={5} radius='md'>
         <Title size={40} order={2}>
           About us
         </Title>
