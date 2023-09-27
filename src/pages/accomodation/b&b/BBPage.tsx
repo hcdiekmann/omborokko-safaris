@@ -9,6 +9,7 @@ import {
   Button,
   Group,
   Divider,
+  createStyles,
 } from '@mantine/core';
 import {
   IconSwimming,
@@ -30,14 +31,20 @@ const pictures = [
   '/pictures/webp/B&BBar.webp',
 ];
 
+const useStyles = createStyles((theme) => ({
+  icons: {
+    color: theme.primaryColor,
+  },
+}));
+
 export const BBPage = (): JSX.Element => {
+  const { classes } = useStyles();
   return (
-    <Container mt={30}>
-      <Card pt={5}>
+    <Container mt={20}>
+      <Card p={15} pt={5}>
         <Title order={2} size={40}>
           Bed & Breakfast
         </Title>
-        <Divider mb={5} size='xs' />
         <SimpleGrid
           cols={2}
           spacing={60}
@@ -61,7 +68,7 @@ export const BBPage = (): JSX.Element => {
             <List fw={500} mt={5} spacing='xs' size='sm' center>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconWifi size='1rem' />
                   </ThemeIcon>
                 }
@@ -70,7 +77,7 @@ export const BBPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconFridge size='1rem' />
                   </ThemeIcon>
                 }
@@ -79,7 +86,7 @@ export const BBPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconBath size='1rem' />
                   </ThemeIcon>
                 }
@@ -88,7 +95,7 @@ export const BBPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconSwimming size='1rem' />
                   </ThemeIcon>
                 }
@@ -97,7 +104,7 @@ export const BBPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconGrill size='1rem' />
                   </ThemeIcon>
                 }

@@ -42,6 +42,7 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
     borderRadius: theme.radius.md,
     boxShadow: theme.shadows.lg,
+    paddingTop: theme.spacing.xl,
   },
   list_subtext: {
     fontSize: theme.fontSizes.md,
@@ -64,7 +65,7 @@ export const ContactPage = (): JSX.Element => {
         breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
       >
         <div>
-          <Title order={1} className={classes.title}>
+          <Title order={2} size={40} className={classes.title}>
             Contact
           </Title>
           <Text className={classes.description} mt='sm' mb={30}>

@@ -10,6 +10,7 @@ import {
   Alert,
   Button,
   Divider,
+  createStyles,
 } from '@mantine/core';
 import { Balancer } from 'react-wrap-balancer';
 import {
@@ -30,14 +31,20 @@ const pictures = [
   '/pictures/webp/CampFromRiver.webp',
 ];
 
+const useStyles = createStyles((theme) => ({
+  icons: {
+    color: theme.primaryColor,
+  },
+}));
+
 export const CampingPage = (): JSX.Element => {
+  const { classes } = useStyles();
   return (
-    <Container mt={30}>
-      <Card pt={5}>
+    <Container mt={20}>
+      <Card p={15} pt={5}>
         <Title order={2} size={40}>
           Remote Camping
         </Title>
-        <Divider mb={5} size='xs' />
         <SimpleGrid
           cols={2}
           spacing={60}
@@ -61,7 +68,7 @@ export const CampingPage = (): JSX.Element => {
             <List fw={500} mt={5} spacing='xs' size='sm' center>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconCampfire size='1rem' />
                   </ThemeIcon>
                 }
@@ -70,7 +77,7 @@ export const CampingPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconBottle size='1rem' />
                   </ThemeIcon>
                 }
@@ -79,7 +86,7 @@ export const CampingPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconToiletPaper size='1rem' />
                   </ThemeIcon>
                 }
@@ -88,7 +95,7 @@ export const CampingPage = (): JSX.Element => {
               </List.Item>
               <List.Item
                 icon={
-                  <ThemeIcon color='yellow' size={24}>
+                  <ThemeIcon className={classes.icons} size={24}>
                     <IconBath size='1rem' />
                   </ThemeIcon>
                 }
@@ -103,7 +110,7 @@ export const CampingPage = (): JSX.Element => {
         <Alert
           icon={<IconAlertCircle size='1rem' />}
           title='Important'
-          color='yellow'
+          className={classes.icons}
           mt={10}
         >
           <List mt={0} size='sm'>

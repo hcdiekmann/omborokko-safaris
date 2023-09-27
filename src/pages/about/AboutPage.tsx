@@ -12,12 +12,11 @@ import Balancer from 'react-wrap-balancer';
 
 export const AboutPage = (): JSX.Element => {
   return (
-    <Container mt={50}>
-      <Card pt={5}>
+    <Container mt={20}>
+      <Card p={15} pt={5}>
         <Title size={40} order={2}>
           About us
         </Title>
-        <Divider mb={5} size='xs' />
         <SimpleGrid
           cols={2}
           verticalSpacing='sm'
