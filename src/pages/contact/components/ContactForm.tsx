@@ -171,9 +171,8 @@ export const ContactForm = (): JSX.Element => {
         label='Intent'
         description='Choose the purpose for contacting us'
       >
-        <Radio mt={2} value='Enquiry' label='Enquiry' />
-        <Radio mt={2} value='Feedback' label='Feedback' />
-        <Radio mt={2} value='Booking' label='Booking request' />
+        <Radio mt={4} value='Enquiry' label='Enquiry' />
+        <Radio mt={6} value='Booking' label='Booking' />
       </Radio.Group>
       {form.values.contactOption === 'Booking' && (
         <div>
