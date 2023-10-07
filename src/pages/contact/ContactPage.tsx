@@ -5,6 +5,7 @@ import {
   Title,
   createStyles,
   rem,
+  Container,
 } from '@mantine/core';
 import { ContactForm } from './components/ContactForm';
 import { IconPhone, IconMapPin } from '@tabler/icons-react';
@@ -42,7 +43,6 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
     borderRadius: theme.radius.md,
     boxShadow: theme.shadows.lg,
-    paddingTop: theme.spacing.xl,
   },
   list_subtext: {
     fontSize: theme.fontSizes.md,
@@ -58,11 +58,11 @@ const useStyles = createStyles((theme) => ({
 export const ContactPage = (): JSX.Element => {
   const { classes } = useStyles();
   return (
-    <div className={classes.wrapper}>
+    <Container mt={20}>
       <SimpleGrid
         cols={2}
-        spacing={50}
-        breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+        spacing={30}
+        breakpoints={[{ maxWidth: '48rem', cols: 1 }]}
       >
         <div>
           <Title order={2} size={40} className={classes.title}>
@@ -88,6 +88,6 @@ export const ContactPage = (): JSX.Element => {
           <ContactForm />
         </div>
       </SimpleGrid>
-    </div>
+    </Container>
   );
 };
