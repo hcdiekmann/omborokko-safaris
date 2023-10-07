@@ -1,5 +1,14 @@
-import { Container, Title, Text, Card, SimpleGrid } from '@mantine/core';
+import {
+  Container,
+  Title,
+  Text,
+  Card,
+  SimpleGrid,
+  Group,
+  Button,
+} from '@mantine/core';
 import { IconQuote } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
 export const AboutPage = (): JSX.Element => {
@@ -58,6 +67,14 @@ export const AboutPage = (): JSX.Element => {
             loading='lazy'
           ></iframe>
         </SimpleGrid>
+        <Group mt={15} position='center'>
+          <Link to='/b&b'>
+            <Button>Bed & Breakfast</Button>
+          </Link>
+          <Link to='/camping'>
+            <Button>Remote Camping</Button>
+          </Link>
+        </Group>
       </Card>
     </Container>
   );
