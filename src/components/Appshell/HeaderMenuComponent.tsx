@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   activeLink: {
-    backgroundColor: theme.colors.gray[3],
+    backgroundColor: theme.colors[theme.primaryColor][2],
   },
 
   links: {
@@ -57,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: theme.colors.gray[3],
+      backgroundColor: theme.colors[theme.primaryColor][2],
     },
   },
 

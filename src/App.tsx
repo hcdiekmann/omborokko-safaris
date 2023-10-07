@@ -58,7 +58,6 @@ export const App = (): JSX.Element => {
           ],
         },
         primaryColor: 'KalahariSand',
-        // white: '#E4E3E3',
         headings: {
           // properties for all headings
           fontWeight: 400,
