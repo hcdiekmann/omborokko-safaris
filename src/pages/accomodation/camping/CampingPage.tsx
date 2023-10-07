@@ -110,6 +110,7 @@ export const CampingPage = (): JSX.Element => {
           icon={<IconAlertCircle size='1rem' />}
           title='Important'
           className={classes.icons}
+          radius={5}
           mt={10}
         >
           <List mt={0} size='sm'>
