@@ -5,9 +5,12 @@ import {
   Title,
   createStyles,
   rem,
+  Container,
+  Button,
 } from '@mantine/core';
 import { ContactForm } from './components/ContactForm';
 import { IconPhone, IconMapPin } from '@tabler/icons-react';
+import { FcGoogle } from 'react-icons/fc';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -42,7 +45,6 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
     borderRadius: theme.radius.md,
     boxShadow: theme.shadows.lg,
-    paddingTop: theme.spacing.xl,
   },
   list_subtext: {
     fontSize: theme.fontSizes.md,
@@ -58,11 +60,11 @@ const useStyles = createStyles((theme) => ({
 export const ContactPage = (): JSX.Element => {
   const { classes } = useStyles();
   return (
-    <div className={classes.wrapper}>
+    <Container mt={20}>
       <SimpleGrid
         cols={2}
-        spacing={50}
-        breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+        spacing={30}
+        breakpoints={[{ maxWidth: '48rem', cols: 1 }]}
       >
         <div>
           <Title order={2} size={40} className={classes.title}>
@@ -83,11 +85,20 @@ export const ContactPage = (): JSX.Element => {
               </Text>
             </List.Item>
           </List>
+          <Button
+            mt={15}
+            component='a'
+            radius={18}
+            leftIcon={<FcGoogle size='1.5rem' />}
+            href='https://g.page/r/CX5GoEWHNEH8EBM/review '
+          >
+            Leave us a Google Maps Review
+          </Button>
         </div>
         <div className={classes.form}>
           <ContactForm />
         </div>
       </SimpleGrid>
-    </div>
+    </Container>
   );
 };

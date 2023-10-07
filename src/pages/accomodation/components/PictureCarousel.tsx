@@ -49,7 +49,7 @@ export const PictureCarousel = ({
 
   const slides = pictures.map((url) => (
     <Carousel.Slide key={url}>
-      <Image src={url} onLoad={handleImageLoad} />
+      <Image src={url} onLoad={handleImageLoad} radius={5} />
     </Carousel.Slide>
   ));
 

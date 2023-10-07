@@ -1,6 +1,7 @@
-import { Container, Title, Text } from '@mantine/core';
+import { Container, Title, Text, Button, Group } from '@mantine/core';
 import { CarouselComponent } from './components/CarouselComponent';
 import Balancer from 'react-wrap-balancer';
+import { Link } from 'react-router-dom';
 
 export const HomePage = (): JSX.Element => {
   return (
@@ -20,6 +21,11 @@ export const HomePage = (): JSX.Element => {
         </Balancer>
       </div>
       <CarouselComponent />
+      <Group mt={15} position='center'>
+        <Link to='/about'>
+          <Button>More Information</Button>
+        </Link>
+      </Group>
     </Container>
   );
 };
