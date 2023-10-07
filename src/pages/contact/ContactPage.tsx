@@ -6,9 +6,10 @@ import {
   createStyles,
   rem,
   Container,
+  Button,
 } from '@mantine/core';
 import { ContactForm } from './components/ContactForm';
-import { IconPhone, IconMapPin } from '@tabler/icons-react';
+import { IconPhone, IconMapPin, IconBrandGoogle } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -83,6 +84,15 @@ export const ContactPage = (): JSX.Element => {
               </Text>
             </List.Item>
           </List>
+          <Button
+            mt={15}
+            component='a'
+            radius={18}
+            leftIcon={<IconBrandGoogle size='1.5rem' />}
+            href='https://g.page/r/CX5GoEWHNEH8EBM/review '
+          >
+            Leave us a Google Review
+          </Button>
         </div>
         <div className={classes.form}>
           <ContactForm />
