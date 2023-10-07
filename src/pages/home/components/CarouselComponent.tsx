@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     zIndex: 2,
   },
   content: {
@@ -160,7 +160,7 @@ function Card({ image, title, category }: CardProps) {
 export const CarouselComponent = (): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const autoplay = useRef(Autoplay({ delay: 10000 }));
+  const autoplay = useRef(Autoplay({ delay: 8000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
