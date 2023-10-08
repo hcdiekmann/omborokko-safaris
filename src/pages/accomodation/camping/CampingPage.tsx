@@ -16,8 +16,11 @@ import {
   IconAlertCircle,
   IconBath,
   IconBottle,
+  IconCalendar,
   IconCampfire,
+  IconFileDollar,
   IconToiletPaper,
+  IconTrekking,
 } from '@tabler/icons-react';
 import { PictureCarousel } from '../components/PictureCarousel';
 import { Link } from 'react-router-dom';
@@ -68,7 +71,7 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconCampfire size='1rem' />
+                    <IconCampfire size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -77,7 +80,7 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconBottle size='1rem' />
+                    <IconBottle size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -86,7 +89,7 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconToiletPaper size='1rem' />
+                    <IconToiletPaper size='1.1rem' />
                   </ThemeIcon>
                 }
               >
@@ -95,11 +98,20 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconBath size='1rem' />
+                    <IconBath size='1.1rem' />
                   </ThemeIcon>
                 }
               >
                 Warm water showers
+              </List.Item>
+              <List.Item
+                icon={
+                  <ThemeIcon className={classes.icons} size={24}>
+                    <IconTrekking size='1.2rem' />
+                  </ThemeIcon>
+                }
+              >
+                Trail to watering hole
               </List.Item>
             </List>
           </div>
@@ -120,10 +132,10 @@ export const CampingPage = (): JSX.Element => {
         </Alert>
         <Group mt={10} position='center'>
           <Link to='/rates'>
-            <Button>View Rates</Button>
+            <Button leftIcon={<IconFileDollar />}>View Rates</Button>
           </Link>
           <Link to='/contact'>
-            <Button>Book Now</Button>
+            <Button leftIcon={<IconCalendar />}>Book Now</Button>
           </Link>
         </Group>
       </Card>

@@ -16,6 +16,8 @@ import {
   IconGrill,
   IconBath,
   IconWifi,
+  IconCalendar,
+  IconFileDollar,
 } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
 import { PictureCarousel } from '../components/PictureCarousel';
@@ -116,10 +118,10 @@ export const BBPage = (): JSX.Element => {
         <PictureCarousel pictures={pictures}></PictureCarousel>
         <Group mt={10} position='center'>
           <Link to='/rates'>
-            <Button>View Rates</Button>
+            <Button leftIcon={<IconFileDollar />}>View Rates</Button>
           </Link>
           <Link to='/contact'>
-            <Button>Book Now</Button>
+            <Button leftIcon={<IconCalendar />}>Book Now</Button>
           </Link>
         </Group>
       </Card>
