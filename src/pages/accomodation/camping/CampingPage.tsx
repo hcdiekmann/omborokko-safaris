@@ -89,7 +89,7 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconToiletPaper size='1.1rem' />
+                    <IconToiletPaper size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -98,7 +98,7 @@ export const CampingPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconBath size='1.1rem' />
+                    <IconBath size='1.2rem' />
                   </ThemeIcon>
                 }
               >
