@@ -8,9 +8,12 @@ import {
   Divider,
   Select,
   Group,
+  Button,
 } from '@mantine/core';
-import { ElementType, useState } from 'react';
+import { useState } from 'react';
 import { PriceTable } from './components/PriceTable';
+import { Link } from 'react-router-dom';
+import { IconCalendar } from '@tabler/icons-react';
 
 type Year = '2022' | '2023' | '2024';
 
@@ -90,6 +93,11 @@ export const RatesPage = (): JSX.Element => {
             We currently only accept cash payments. All payments shall be made
             upfront upon arrival.
           </Text>
+          <Group mt={15} position='center'>
+            <Link to='/contact'>
+              <Button leftIcon={<IconCalendar />}>Book Now</Button>
+            </Link>
+          </Group>
         </Card>
       </Card>
     </Container>
