@@ -11,6 +11,7 @@ import {
 import { ContactForm } from './components/ContactForm';
 import { IconPhone, IconMapPin } from '@tabler/icons-react';
 import { FcGoogle } from 'react-icons/fc';
+import { FaStar } from 'react-icons/fa';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -92,7 +93,7 @@ export const ContactPage = (): JSX.Element => {
             leftIcon={<FcGoogle size='1.5rem' />}
             href='https://g.page/r/CX5GoEWHNEH8EBM/review '
           >
-            Leave us a Google Maps Review
+            Leave us a 5 <FaStar style={{ marginRight: '0.25rem' }} /> Review
           </Button>
         </div>
         <div className={classes.form}>

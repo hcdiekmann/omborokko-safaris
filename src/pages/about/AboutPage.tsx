@@ -7,7 +7,7 @@ import {
   Group,
   Button,
 } from '@mantine/core';
-import { IconQuote } from '@tabler/icons-react';
+import { IconBed, IconQuote, IconTent } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
@@ -69,10 +69,10 @@ export const AboutPage = (): JSX.Element => {
         </SimpleGrid>
         <Group mt={15} position='center'>
           <Link to='/b&b'>
-            <Button>Bed & Breakfast</Button>
+            <Button leftIcon={<IconBed />}>Bed & Breakfast</Button>
           </Link>
           <Link to='/camping'>
-            <Button>Remote Camping</Button>
+            <Button leftIcon={<IconTent />}>Remote Camping</Button>
           </Link>
         </Group>
       </Card>

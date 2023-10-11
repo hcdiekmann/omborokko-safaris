@@ -16,6 +16,8 @@ import {
   IconGrill,
   IconBath,
   IconWifi,
+  IconCalendar,
+  IconFileDollar,
 } from '@tabler/icons-react';
 import Balancer from 'react-wrap-balancer';
 import { PictureCarousel } from '../components/PictureCarousel';
@@ -68,7 +70,7 @@ export const BBPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconWifi size='1rem' />
+                    <IconWifi size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -77,7 +79,7 @@ export const BBPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconFridge size='1rem' />
+                    <IconFridge size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -86,7 +88,7 @@ export const BBPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconBath size='1rem' />
+                    <IconBath size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -95,7 +97,7 @@ export const BBPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconSwimming size='1rem' />
+                    <IconSwimming size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -104,7 +106,7 @@ export const BBPage = (): JSX.Element => {
               <List.Item
                 icon={
                   <ThemeIcon className={classes.icons} size={24}>
-                    <IconGrill size='1rem' />
+                    <IconGrill size='1.2rem' />
                   </ThemeIcon>
                 }
               >
@@ -116,10 +118,10 @@ export const BBPage = (): JSX.Element => {
         <PictureCarousel pictures={pictures}></PictureCarousel>
         <Group mt={10} position='center'>
           <Link to='/rates'>
-            <Button>View Rates</Button>
+            <Button leftIcon={<IconFileDollar />}>View Rates</Button>
           </Link>
           <Link to='/contact'>
-            <Button>Book Now</Button>
+            <Button leftIcon={<IconCalendar />}>Book Now</Button>
           </Link>
         </Group>
       </Card>
