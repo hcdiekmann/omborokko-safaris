@@ -6,8 +6,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { MantineProvider } from '@mantine/core';
 import {
   FullAboutPage,
-  FullBBPage,
-  FullCampingPage,
   FullContactPage,
   FullHomePage,
   FullRatesPage,
@@ -83,8 +81,8 @@ export const App = (): JSX.Element => {
             <Route path='/about' element={<FullAboutPage />} />
             <Route path='/rates' element={<FullRatesPage />} />
             <Route path='/contact' element={<FullContactPage />} />
-            <Route path='/camping' element={<FullCampingPage />} />
-            <Route path='/b&b' element={<FullBBPage />} />
+            {/* <Route path='/camping' element={<FullCampingPage />} /> */}
+            {/* <Route path='/b&b' element={<FullBBPage />} /> */}
           </Routes>
         </Router>
       </QueryClientProvider>

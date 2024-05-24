@@ -19,6 +19,7 @@ import {
   IconCalendar,
   IconCampfire,
   IconFileDollar,
+  IconSwimming,
   IconToiletPaper,
   IconTrekking,
 } from '@tabler/icons-react';
@@ -76,6 +77,15 @@ export const CampingPage = (): JSX.Element => {
                 }
               >
                 Firepit with grill
+              </List.Item>
+              <List.Item
+                icon={
+                  <ThemeIcon className={classes.icons} size={24}>
+                    <IconSwimming size='1.2rem' />
+                  </ThemeIcon>
+                }
+              >
+                Swimming pool
               </List.Item>
               <List.Item
                 icon={

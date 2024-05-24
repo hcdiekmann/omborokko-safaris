@@ -9,22 +9,12 @@ interface AppShellProps {
 export const AppShellComponent = (props: AppShellProps) => {
   const links = [
     {
-      link: '/about',
-      label: 'About',
+      link: '/',
+      label: 'Home',
     },
     {
-      link: '/camping',
-      label: 'Accommodation',
-      links: [
-        {
-          link: '/camping',
-          label: 'Remote Camping',
-        },
-        {
-          link: '/b&b',
-          label: 'Bed & Breakfast',
-        },
-      ],
+      link: '/about',
+      label: 'About',
     },
     {
       link: '/rates',

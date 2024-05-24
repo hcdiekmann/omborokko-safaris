@@ -3,6 +3,8 @@ import { CarouselComponent } from './components/CarouselComponent';
 import Balancer from 'react-wrap-balancer';
 import { Link } from 'react-router-dom';
 
+import { CampingPage } from '../accomodation/camping/CampingPage';
+
 export const HomePage = (): JSX.Element => {
   return (
     <Container mt={50}>
@@ -21,9 +23,10 @@ export const HomePage = (): JSX.Element => {
         </Balancer>
       </div>
       <CarouselComponent />
+      <CampingPage />
       <Group mt={15} position='center'>
         <Link to='/about'>
-          <Button>More Information</Button>
+          <Button>More information about us</Button>
         </Link>
       </Group>
     </Container>

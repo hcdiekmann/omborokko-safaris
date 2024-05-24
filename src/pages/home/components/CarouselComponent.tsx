@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import {
@@ -86,11 +85,11 @@ interface CardProps {
 }
 
 const data = [
-  {
-    image: '/pictures/webp/B&BOutsidePatioDrinks.webp',
-    title: 'Relax and unwind at our Farmhouse Patio',
-    category: 'Bed & Breakfast',
-  },
+  // {
+  //   image: '/pictures/webp/B&BOutsidePatioDrinks.webp',
+  //   title: 'Relax and unwind at our Farmhouse Patio',
+  //   category: 'Bed & Breakfast',
+  // },
   {
     image: '/pictures/webp/CampFarView.webp',
     title: 'Adventurous Camping amidst majestic Leadwood trees',
@@ -101,11 +100,11 @@ const data = [
     title: 'Encounter Wildlife at our Waterhole observatory',
     category: 'Remote Camping',
   },
-  {
-    image: '/pictures/webp/B&BFamilyRoomBeds.webp',
-    title: 'Indulge in luxurious tranquility at our Farm Retreat',
-    category: 'Bed & Breakfast',
-  },
+  // {
+  //   image: '/pictures/webp/B&BFamilyRoomBeds.webp',
+  //   title: 'Indulge in luxurious tranquility at our Farm Retreat',
+  //   category: 'Bed & Breakfast',
+  // },
 ];
 
 function Card({ image, title, category }: CardProps) {
@@ -160,7 +159,6 @@ function Card({ image, title, category }: CardProps) {
 export const CarouselComponent = (): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const autoplay = useRef(Autoplay({ delay: 8000 }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
@@ -178,9 +176,6 @@ export const CarouselComponent = (): JSX.Element => {
       nextControlIcon={<IconArrowRight size={24} />}
       previousControlIcon={<IconArrowLeft size={24} />}
       slidesToScroll={mobile ? 1 : 2}
-      plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={autoplay.current.reset}
     >
       {slides}
     </Carousel>
