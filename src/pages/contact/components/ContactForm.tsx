@@ -180,7 +180,7 @@ export const ContactForm = (): JSX.Element => {
             maw={270}
             label='Accommodation'
             placeholder='Select accommodation type'
-            data={['Camping', 'Bed & Breakfast']}
+            data={['Camping']} // Add B&B when wanted  'Bed & Breakfast'
             {...form.getInputProps('accommodationType')}
           />
           <NumberInput
@@ -212,7 +212,7 @@ export const ContactForm = (): JSX.Element => {
           />
           <Checkbox
             mt='sm'
-            label='I understand that payments are made upfront upon arrival in cash only.'
+            label='I understand that payments are made upfront upon arrival at the reception.'
             {...form.getInputProps('termsOfPayment', { type: 'checkbox' })}
           />
         </div>

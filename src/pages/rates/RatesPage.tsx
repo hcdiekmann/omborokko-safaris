@@ -15,19 +15,9 @@ import { PriceTable } from './components/PriceTable';
 import { Link } from 'react-router-dom';
 import { IconCalendar } from '@tabler/icons-react';
 
-type Year = '2022' | '2023' | '2024';
+type Year = '2023' | '2024' | '2025';
 
 const rates = {
-  '2022': {
-    camping: [
-      { id: 1, description: 'Adult per person per night ', price: 'N$ 220' },
-      { id: 2, description: 'Children (16 or under)', price: 'N$ 180' },
-      { id: 3, description: 'Extra firewood bag', price: 'N$ 40' },
-    ],
-    bed: [
-      { id: 1, description: 'Adult per person per night', price: 'N$ 850' },
-    ],
-  },
   '2023': {
     camping: [
       { id: 1, description: 'Adult per person per night ', price: 'N$ 250' },
@@ -48,11 +38,20 @@ const rates = {
       { id: 1, description: 'Adult per person per night', price: 'N$ 1200' },
     ],
   },
-  // ... add more year rates here ...
+  '2025': {
+    camping: [
+      { id: 1, description: 'Adult per person per night ', price: 'N$ 325' },
+      { id: 2, description: 'Children (16 or under)', price: 'N$ 225' },
+      { id: 3, description: 'Extra firewood bag', price: 'N$ 50' },
+    ],
+    bed: [
+      { id: 1, description: 'Adult per person per night', price: 'N$ 1500' },
+    ],
+  },
 };
 
 export const RatesPage = (): JSX.Element => {
-  const [year, setYear] = useState<string | null>('2023');
+  const [year, setYear] = useState<string | null>(new Date().getFullYear().toString());
 
   return (
     <Container mt={20}>
@@ -65,7 +64,7 @@ export const RatesPage = (): JSX.Element => {
             label='Year'
             value={year}
             onChange={setYear}
-            data={['2022', '2023', '2024']}
+            data={['2023', '2024', '2025']}
           />
         </Group>
         {year && (
@@ -76,13 +75,13 @@ export const RatesPage = (): JSX.Element => {
             </Text>
             <Divider mb={5} size='xs' />
             <PriceTable elements={rates[year as Year].camping} />
-            <Space h='xl' />
-            <Title order={3}>Bed & Breakfast</Title>
+            {/* <Space h='xl' /> */}
+            {/* <Title order={3}>Bed & Breakfast</Title>
             <Text fz='sm' c='dimmed'>
               Minimum two nights, no children
             </Text>
             <Divider mb={5} size='xs' />
-            <PriceTable elements={rates[year as Year].bed} />
+            <PriceTable elements={rates[year as Year].bed} /> */}
           </>
         )}
         <Card>
@@ -90,8 +89,8 @@ export const RatesPage = (): JSX.Element => {
             Please Note
           </Badge>
           <Text fz='sm' c='dimmed' ml={5}>
-            We currently only accept cash payments. All payments shall be made
-            upfront upon arrival.
+            All payments shall be made
+            upfront upon arrival at the recpetion.
           </Text>
           <Group mt={15} position='center'>
             <Link to='/contact'>
