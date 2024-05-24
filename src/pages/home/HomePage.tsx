@@ -22,7 +22,7 @@ export const HomePage = (): JSX.Element => {
           </Text>
         </Balancer>
       </div>
-      <CarouselComponent />
+      {/* <CarouselComponent /> */}
       <CampingPage />
       <Group mt={15} position='center'>
         <Link to='/about'>
