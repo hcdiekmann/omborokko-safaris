@@ -28,9 +28,9 @@ export const AppShellComponent = (props: AppShellProps) => {
 
   return (
     <AppShell
-      header={<HeaderMenu Logo={'/pictures/Logo_no_bg.png'} links={links} />}
+      header={<HeaderMenu Logo={'/pictures/black.png'} links={links} />}
       footer={
-        <FooterCentered Logo={'/pictures/Logo_no_bg.png'} links={links} />
+        <FooterCentered Logo={'/pictures/black.png'} links={links} />
       }
     >
       {props.children}
