@@ -4,10 +4,11 @@ import Balancer from 'react-wrap-balancer';
 import { Link } from 'react-router-dom';
 
 import { CampingPage } from '../accomodation/camping/CampingPage';
+import { AboutPage } from '../about/AboutPage';
 
 export const HomePage = (): JSX.Element => {
   return (
-    <Container mt={50}>
+    <Container mt={50} px={0}>
       <div style={{ textAlign: 'center' }}>
         <Balancer>
           <Title size={70} order={1} style={{ color: 'whitesmoke' }}>
@@ -22,11 +23,7 @@ export const HomePage = (): JSX.Element => {
       </div>
       {/* <CarouselComponent /> */}
       <CampingPage />
-      <Group mt={15} position='center'>
-        <Link to='/about'>
-          <Button>More information about us</Button>
-        </Link>
-      </Group>
+      <AboutPage />
     </Container>
   );
 };
