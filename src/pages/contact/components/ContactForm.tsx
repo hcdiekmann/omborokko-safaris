@@ -45,12 +45,20 @@ export const ContactForm = (): JSX.Element => {
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleDateRangeChange = (dates: [Date | null, Date | null]) => {
+    setDateRange(dates);
+  };
+
   const handleSubmit = async (values: typeof form.values) => {
     // check date selected
-    if (
-      values.contactOption === 'Booking' &&
-      (!dateRange[0] || !dateRange[1])
-    ) {
+    const startDate = dateRange[0] ? 
+      new Date(dateRange[0].getTime() - dateRange[0].getTimezoneOffset() * 60000)
+        .toISOString().split('T')[0] : null;
+    const endDate = dateRange[1] ? 
+      new Date(dateRange[1].getTime() - dateRange[1].getTimezoneOffset() * 60000)
+        .toISOString().split('T')[0] : null;
+
+    if (values.contactOption === 'Booking' && (!dateRange[0] || !dateRange[1])) {
       notifications.show({
         title: 'No date selected',
         message: 'Select a valid date range for your booking.',
@@ -100,12 +108,8 @@ export const ContactForm = (): JSX.Element => {
         },
         body: JSON.stringify({
           ...values,
-          startDate: dateRange[0]
-            ? dateRange[0].toISOString().split('T')[0] // Convert to ISO string and remove time
-            : null,
-          endDate: dateRange[1]
-            ? dateRange[1].toISOString().split('T')[0]
-            : null,
+          startDate: startDate,
+          endDate: endDate,
         }),
       });
 
@@ -203,7 +207,7 @@ export const ContactForm = (): JSX.Element => {
             type='range'
             minDate={new Date()}
             value={dateRange}
-            onChange={setDateRange}
+            onChange={handleDateRangeChange}
           />
           <Checkbox
             mt='md'
