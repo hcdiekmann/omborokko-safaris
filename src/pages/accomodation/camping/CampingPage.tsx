@@ -140,12 +140,12 @@ export const CampingPage = (): JSX.Element => {
             <List.Item>No electrical outlets available</List.Item>
           </List>
         </Alert>
-        <Group mt={10} position='center'>
-          <Link to='/rates'>
-            <Button leftIcon={<IconFileDollar />}>View Rates</Button>
+        <Group mt={10} grow >
+          <Link style={{ textDecoration: 'none' }} to='/rates'>
+            <Button fullWidth leftIcon={<IconFileDollar />}>View Rates</Button>
           </Link>
-          <Link to='/contact'>
-            <Button leftIcon={<IconCalendar />}>Book Now</Button>
+          <Link style={{ textDecoration: 'none' }} to='/contact'>
+            <Button fullWidth leftIcon={<IconCalendar />}>Book Now</Button>
           </Link>
         </Group>
       </Card>

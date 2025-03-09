@@ -33,8 +33,7 @@ export const AboutPage = (): JSX.Element => {
                 beautiful country. <br></br>Whether you are an adventure-seeker
                 looking to explore the rugged terrains or someone seeking a
                 tranquil escape from the bustling city life, Omborokko Safaris
-                has something for everyone. We offer a variety of accommodation
-                options ranging from camping to bed and breakfast.
+                has something for everyone.
               </Balancer>
             </Text>
             <div
@@ -67,11 +66,7 @@ export const AboutPage = (): JSX.Element => {
             loading='lazy'
           ></iframe>
         </SimpleGrid>
-        <Group mt={15} position='center'>
-            <Link to='/contact'>
-              <Button leftIcon={<IconCalendar />}>Book Now</Button>
-            </Link>
-          </Group>
+      
       </Card>
     </Container>
   );
